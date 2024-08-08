@@ -1,0 +1,45 @@
+name: pmf_website
+description: "Association Events Week."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  auto_size_text: ^3.0.0
+  cloud_firestore: ^5.0.1
+  dartz: ^0.10.1
+  dropdown_button2: ^2.3.9
+  firebase_core: ^3.3.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  flutter_staggered_animations: ^1.1.1
+  font_awesome_flutter: ^10.7.0
+  get_it: ^7.7.0
+  go_router: ^14.1.3
+  google_fonts: ^6.2.1
+  image_network: ^2.5.6
+  loading_indicator: ^3.1.1
+  meta_seo: ^3.0.9
+  mouse_follower: ^1.2.2
+  skeletonizer: ^1.3.0
+  toastification: ^2.0.0
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
