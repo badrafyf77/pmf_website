@@ -35,7 +35,6 @@ class AppFooter extends StatelessWidget {
                   const SizedBox(width: 10),
                   SocialMediaItem(
                     onPressed: () {
-                      customLaunchUrl(Constants.eventsWeekInstagram);
                     },
                     icon: FontAwesomeIcons.instagram,
                     backgroundColor: const Color(0xFFD72072),
@@ -56,16 +55,14 @@ class AppFooter extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               AutoSizeText(
-                'Contact@eventsweek.org',
+                'Contact@pmf.org',
                 style: Styles.normal12.copyWith(
-                  fontWeight: FontWeight.normal,
                   fontFamily: GoogleFonts.poppins().fontFamily,
                 ),
               ),
               AutoSizeText(
-                "Droits d'auteur © 2024 Tous droits réservés - Association Events Week",
+                "Droits d'auteur © 2024 Tous droits réservés - PES MOROCCAN FAMILY",
                 style: Styles.normal12.copyWith(
-                  fontWeight: FontWeight.normal,
                   fontFamily: GoogleFonts.poppins().fontFamily,
                 ),
                 textAlign: TextAlign.center,
@@ -76,7 +73,6 @@ class AppFooter extends StatelessWidget {
                   AutoSizeText(
                     'Propulsé par:',
                     style: Styles.normal14.copyWith(
-                      fontWeight: FontWeight.normal,
                     ),
                   ),
                   ElevatedButton(
@@ -95,7 +91,6 @@ class AppFooter extends StatelessWidget {
                       '  AFYF Badreddine',
                       style: Styles.normal12.copyWith(
                         color: AppColors.kPrimaryColor,
-                        fontWeight: FontWeight.normal,
                         fontFamily: GoogleFonts.poppins().fontFamily,
                       ),
                     ),

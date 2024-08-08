@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
-import 'package:pmf_website/features/home/presentation/views/home_view.dart';
+import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
 
 class AppRouter {
   static const home = '/';
@@ -22,7 +22,7 @@ class AppRouter {
             }
             return const NoTransitionPage(
               child: MouseFollowerWidget(
-                child: HomeView(),
+                child: ProfileView(),
               ),
             );
           }),

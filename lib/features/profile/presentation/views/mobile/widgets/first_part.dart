@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/app_images.dart';
 import 'package:pmf_website/core/utils/customs/button.dart';
-import 'package:pmf_website/features/home/presentation/views/widgets/events_week_description.dart';
 
 class FirstPartMobile extends StatelessWidget {
   const FirstPartMobile({
@@ -19,9 +18,7 @@ class FirstPartMobile extends StatelessWidget {
           height: 150,
           width: 220,
         ),
-        const EventsWeekDescription(
-          widthPercent: .85,
-        ),
+        
         const SizedBox(
           height: 15,
         ),

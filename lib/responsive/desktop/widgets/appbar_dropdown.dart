@@ -37,7 +37,6 @@ class AppbarDropdown extends StatelessWidget {
                     item,
                     style: Styles.normal14.copyWith(
                       color: Colors.black,
-                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),

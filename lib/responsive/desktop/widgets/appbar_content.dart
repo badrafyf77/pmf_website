@@ -3,8 +3,6 @@ import 'package:pmf_website/core/config/app_router.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
-import 'package:pmf_website/core/utils/helpers/set_elements_nbr_in_appbar_dropdown.dart';
-import 'package:pmf_website/responsive/desktop/widgets/appbar_dropdown.dart';
 import 'package:pmf_website/responsive/desktop/widgets/appbar_item.dart';
 
 class AppbarContent extends StatelessWidget {
@@ -55,7 +53,7 @@ class ContactButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomButton(
       onPressed: () {},
-      textButton: 'CONTACT',
+      textButton: 'Settings',
       backgroundColor: AppColors.kPrimaryColor,
       textColor: Colors.black,
       height: 35,
@@ -86,7 +84,6 @@ class AppbarItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Container(
       height: 70,
       decoration: const BoxDecoration(
@@ -97,7 +94,7 @@ class AppbarItems extends StatelessWidget {
         children: [
           AppBarItem(
             isSelected: isHomeSelected,
-            text: 'ACCUEIL',
+            text: 'Profile',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.home);
             },
@@ -105,37 +102,21 @@ class AppbarItems extends StatelessWidget {
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isAboutSelected,
-            text: 'À PROPOS',
+            text: 'Leagues',
             onPressed: () {},
           ),
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isEventsSelected,
-            text: 'ÉVÉNEMENTS',
+            text: 'Cups',
             onPressed: () {},
           ),
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isActivitiesSelected,
-            text: 'ACTIVITÉS PROPOSÉES',
+            text: 'Trophies',
             onPressed: () {},
           ),
-          const SizedBox(width: 8),
-          AppBarItem(
-            isSelected: isGallerySelected,
-            text: 'GALERIE',
-            onPressed: () {},
-          ),
-          const SizedBox(width: 8),
-          if (width > 1060)
-            AppBarItem(
-              isSelected: isPartnersSelected,
-              text: "PARTENAIRES",
-              onPressed: () {},
-            ),
-          if (width <= 1060)
-            AppbarDropdown(
-                itemCount: setNumberOfElementsInAppbarDropdown(width)),
         ],
       ),
     );

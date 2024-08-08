@@ -31,7 +31,7 @@ class MobileDrawer extends StatelessWidget {
               child: DrawerHeader(
                 child: Container(
                   decoration: const BoxDecoration(
-                    color: AppColors.kPrimaryColor,
+                    color: Colors.black,
                     shape: BoxShape.circle,
                   ),
                   child: const Padding(
@@ -46,35 +46,25 @@ class MobileDrawer extends StatelessWidget {
               ),
             ),
             DrawerItem(
-              text: 'ACCUEIL',
+              text: 'Profile',
               icon: Icons.home,
               onTap: () {
                 AppRouter.navigateTo(context, AppRouter.home);
               },
             ),
             DrawerItem(
-              text: 'À PROPOS',
+              text: 'Leagues',
               icon: Icons.info,
               onTap: () {},
             ),
             DrawerItem(
-              text: 'ÉVÉNEMENTS',
+              text: 'Cups',
               icon: Icons.event,
               onTap: () {},
             ),
             DrawerItem(
-              text: 'ACTIVITÉS PROPOSÉES',
+              text: 'Trophies',
               icon: Icons.assignment,
-              onTap: () {},
-            ),
-            DrawerItem(
-              text: 'GALERIE',
-              icon: Icons.collections,
-              onTap: () {},
-            ),
-            DrawerItem(
-              text: 'PARTENAIRES',
-              icon: Icons.people,
               onTap: () {},
             ),
             const SizedBox(
@@ -82,7 +72,7 @@ class MobileDrawer extends StatelessWidget {
             ),
             CustomButton(
               onPressed: () {},
-              textButton: 'CONTACT',
+              textButton: 'Settings',
               backgroundColor: AppColors.kPrimaryColor,
               height: 35,
               width: 130,

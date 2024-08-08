@@ -37,9 +37,7 @@ class AppBarItem extends StatelessWidget {
               : null,
           child: Text(
             text,
-            style: Styles.normal14.copyWith(
-              fontWeight: FontWeight.normal,
-            ),
+            style: Styles.normal18,
           ),
         ),
       ),

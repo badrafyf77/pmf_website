@@ -6,14 +6,17 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MobileAppBar({super.key});
 
   @override
-  Size get preferredSize => const Size.fromHeight(85);
+  Size get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const AppLogo(
-        height: 90,
-        width: 90,
+      title: const Align(
+        alignment: Alignment.centerLeft,
+        child: AppLogo(
+          height: 90,
+          width: 90,
+        ),
       ),
       actions: [
         Builder(

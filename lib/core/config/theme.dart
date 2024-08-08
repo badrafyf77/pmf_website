@@ -14,7 +14,7 @@ class AppThemes {
       backgroundColor: Colors.transparent,
       scrolledUnderElevation: 0,
       elevation: 0.0,
-      toolbarHeight: 85,
+      toolbarHeight: 100,
     ),
   );
 }

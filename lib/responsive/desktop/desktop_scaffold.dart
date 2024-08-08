@@ -31,7 +31,7 @@ class DesktopScaffold extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: DesktopAppBar(
-          isHomeSelected: isHomeSelected,
+          isProfileSelected: isHomeSelected,
           isAboutSelected: isAboutSelected,
           isEventsSelected: isEventsSelected,
           isActivitiesSelected: isActivitiesSelected,

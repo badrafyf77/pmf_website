@@ -4,7 +4,7 @@ import 'package:pmf_website/responsive/desktop/widgets/appbar_content.dart';
 class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DesktopAppBar({
     super.key,
-    required this.isHomeSelected,
+    required this.isProfileSelected,
     required this.isAboutSelected,
     required this.isEventsSelected,
     required this.isActivitiesSelected,
@@ -13,7 +13,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.isPartnersSelected,
   });
 
-  final bool isHomeSelected;
+  final bool isProfileSelected;
   final bool isAboutSelected;
   final bool isEventsSelected;
   final bool isActivitiesSelected;
@@ -22,13 +22,13 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isPartnersSelected;
 
   @override
-  Size get preferredSize => const Size.fromHeight(85);
+  Size get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: AppbarContent(
-        isHomeSelected: isHomeSelected,
+        isHomeSelected: isProfileSelected,
         isAboutSelected: isAboutSelected,
         isEventsSelected: isEventsSelected,
         isActivitiesSelected: isActivitiesSelected,
