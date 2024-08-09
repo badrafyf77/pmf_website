@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/constants.dart';
 import 'package:pmf_website/core/utils/customs/horizontal_line.dart';
@@ -56,15 +55,11 @@ class AppFooter extends StatelessWidget {
               const SizedBox(height: 10),
               AutoSizeText(
                 'Contact@pmf.org',
-                style: Styles.normal12.copyWith(
-                  fontFamily: GoogleFonts.poppins().fontFamily,
-                ),
+                style: Styles.normal12,
               ),
               AutoSizeText(
                 "Droits d'auteur © 2024 Tous droits réservés - PES MOROCCAN FAMILY",
-                style: Styles.normal12.copyWith(
-                  fontFamily: GoogleFonts.poppins().fontFamily,
-                ),
+                style: Styles.normal12,
                 textAlign: TextAlign.center,
               ),
               Row(
@@ -91,7 +86,6 @@ class AppFooter extends StatelessWidget {
                       '  AFYF Badreddine',
                       style: Styles.normal12.copyWith(
                         color: AppColors.kPrimaryColor,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
                       ),
                     ),
                   )

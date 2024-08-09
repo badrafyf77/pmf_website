@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/app_images.dart';
 import 'package:pmf_website/core/utils/styles.dart';
@@ -84,7 +83,6 @@ class ProfileInfo extends StatelessWidget {
             "Joined At: 19/08/2024 06:18",
             style: Styles.normal14.copyWith(
               color: Colors.grey,
-              fontFamily: GoogleFonts.poppins().fontFamily,
             ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

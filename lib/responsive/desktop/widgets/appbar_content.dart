@@ -103,7 +103,9 @@ class AppbarItems extends StatelessWidget {
           AppBarItem(
             isSelected: isAboutSelected,
             text: 'Leagues',
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, AppRouter.leagues);
+            },
           ),
           const SizedBox(width: 8),
           AppBarItem(

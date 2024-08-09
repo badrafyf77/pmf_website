@@ -6,8 +6,8 @@ import 'package:pmf_website/responsive/tablet/tablet_scaffold.dart';
 class GeneralScaffold extends StatelessWidget {
   const GeneralScaffold({
     super.key,
-    this.isHomeSelected = false,
-    this.isAboutSelected = false,
+    this.isProfileSelected = false,
+    this.isLeaguesSelected = false,
     this.isActivitiesSelected = false,
     this.isGallerySelected = false,
     this.isUserTermsSelected = false,
@@ -18,8 +18,8 @@ class GeneralScaffold extends StatelessWidget {
     required this.mobileBody,
   });
 
-  final bool isHomeSelected;
-  final bool isAboutSelected;
+  final bool isProfileSelected;
+  final bool isLeaguesSelected;
   final bool isEventsSelected;
   final bool isActivitiesSelected;
   final bool isGallerySelected;
@@ -34,8 +34,8 @@ class GeneralScaffold extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 920) {
         return DesktopScaffold(
-          isHomeSelected: isHomeSelected,
-          isAboutSelected: isAboutSelected,
+          isHomeSelected: isProfileSelected,
+          isAboutSelected: isLeaguesSelected,
           isEventsSelected: isEventsSelected,
           isActivitiesSelected: isActivitiesSelected,
           isGallerySelected: isGallerySelected,

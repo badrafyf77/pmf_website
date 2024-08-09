@@ -55,7 +55,9 @@ class MobileDrawer extends StatelessWidget {
             DrawerItem(
               text: 'Leagues',
               icon: Icons.info,
-              onTap: () {},
+              onTap: () {
+                AppRouter.navigateTo(context, AppRouter.leagues);
+              },
             ),
             DrawerItem(
               text: 'Cups',

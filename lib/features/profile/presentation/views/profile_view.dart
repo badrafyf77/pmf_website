@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GeneralScaffold(
-      isHomeSelected: true,
+      isProfileSelected: true,
       desktopBody: DesktopProfileBody(),
       tabletBody: TabletProfileBody(),
       mobileBody: MobileProfileBody(),

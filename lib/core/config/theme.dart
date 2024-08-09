@@ -5,7 +5,7 @@ import 'package:pmf_website/core/utils/app_colors.dart';
 class AppThemes {
   static final appTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
-    fontFamily: GoogleFonts.alegreya().fontFamily,
+    fontFamily: GoogleFonts.akatab().fontFamily,
     colorScheme: const ColorScheme.light(
       primary: AppColors.kPrimaryColor,
       secondary: Color(0xFFD8E307),

@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
@@ -85,15 +84,12 @@ class StatCard extends StatelessWidget {
         children: [
           Text(
             value.toString(),
-            style: Styles.normal30.copyWith(
-              fontFamily: GoogleFonts.poppins().fontFamily,
-            ),
+            style: Styles.normal30,
             maxLines: 1,
           ),
           AutoSizeText(
             title,
             style: Styles.normal18.copyWith(
-              fontFamily: GoogleFonts.poppins().fontFamily,
               color: Colors.grey,
             ),
             maxLines: 1,
