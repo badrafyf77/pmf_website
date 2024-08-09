@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/app_images.dart';
+import 'package:pmf_website/core/utils/customs/pmf_background.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
 class FirstPart extends StatelessWidget {
@@ -11,35 +11,13 @@ class FirstPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        Opacity(
-          opacity: .4,
-          child: Container(
-            height: 250,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.transparent,
-                  AppColors.kPrimaryColor,
-                  Colors.transparent,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                tileMode: TileMode.mirror,
-              ),
-              image: DecorationImage(
-                image: AssetImage(
-                  AppAssets.logo,
-                ),
-              ),
-            ),
-          ),
-        ),
-        const SizedBox(
+        PmfBackground(),
+        SizedBox(
           height: 325,
         ),
-        const Positioned(
+        Positioned(
           left: 25,
           bottom: 0,
           child: Row(
@@ -57,6 +35,8 @@ class FirstPart extends StatelessWidget {
     );
   }
 }
+
+
 
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({

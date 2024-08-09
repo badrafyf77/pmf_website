@@ -44,9 +44,9 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyD-MZnVh9TbhxMNBN4K9VWJqOuNMF6hbrI',
     appId: '1:1035631766526:web:5f538f77e8470158a22eaf',
     messagingSenderId: '1035631766526',
-    projectId: 'events-week',
-    authDomain: 'events-week.firebaseapp.com',
-    storageBucket: 'events-week.appspot.com',
+    projectId: 'pmf-website',
+    authDomain: 'pmf-website.firebaseapp.com',
+    storageBucket: 'pmf-website.appspot.com',
     measurementId: 'G-3G8XVJJN02',
   );
 
@@ -54,16 +54,16 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCphwgYqiuZgZCITZqATKn1K4jgzorZKrg',
     appId: '1:1035631766526:android:7960a63e65fb0a74a22eaf',
     messagingSenderId: '1035631766526',
-    projectId: 'events-week',
-    storageBucket: 'events-week.appspot.com',
+    projectId: 'pmf-website',
+    storageBucket: 'pmf-website.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDne8OTkVcSDRc8hl3QGteSy02m78pImSM',
     appId: '1:1035631766526:ios:dc05a8f646b72eeea22eaf',
     messagingSenderId: '1035631766526',
-    projectId: 'events-week',
-    storageBucket: 'events-week.appspot.com',
+    projectId: 'pmf-website',
+    storageBucket: 'pmf-website.appspot.com',
     iosBundleId: 'com.example.stageWebsite',
   );
 
@@ -71,8 +71,8 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyDne8OTkVcSDRc8hl3QGteSy02m78pImSM',
     appId: '1:1035631766526:ios:dc05a8f646b72eeea22eaf',
     messagingSenderId: '1035631766526',
-    projectId: 'events-week',
-    storageBucket: 'events-week.appspot.com',
+    projectId: 'pmf-website',
+    storageBucket: 'pmf-website.appspot.com',
     iosBundleId: 'com.example.stageWebsite',
   );
 
@@ -80,10 +80,9 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyD-MZnVh9TbhxMNBN4K9VWJqOuNMF6hbrI',
     appId: '1:1035631766526:web:a37292655b78361ca22eaf',
     messagingSenderId: '1035631766526',
-    projectId: 'events-week',
-    authDomain: 'events-week.firebaseapp.com',
-    storageBucket: 'events-week.appspot.com',
+    projectId: 'pmf-website',
+    authDomain: 'pmf-website.firebaseapp.com',
+    storageBucket: 'pmf-website.appspot.com',
     measurementId: 'G-7WQLF7R4QQ',
   );
-
 }

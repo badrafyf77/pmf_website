@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues_body.dart';
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class LeaguesView extends StatelessWidget {
@@ -10,16 +11,9 @@ class LeaguesView extends StatelessWidget {
       isLeaguesSelected: true,
       desktopBody: LeaguesBody(),
       tabletBody: LeaguesBody(),
-      mobileBody: LeaguesBody(),
+      mobileBody: LeaguesBody(
+        isMobile: true,
+      ),
     );
-  }
-}
-
-class LeaguesBody extends StatelessWidget {
-  const LeaguesBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
