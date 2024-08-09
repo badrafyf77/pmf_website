@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/league_info_mobile.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/league_prizes_mobile.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/mobile/league_info_mobile.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/mobile/league_prizes_mobile.dart';
 
 class LeagueCardMobile extends StatelessWidget {
   const LeagueCardMobile({super.key});

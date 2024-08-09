@@ -96,7 +96,7 @@ class AppbarItems extends StatelessWidget {
             isSelected: isHomeSelected,
             text: 'Profile',
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.home);
+              AppRouter.navigateTo(context, AppRouter.profile);
             },
           ),
           const SizedBox(width: 8),
