@@ -15,7 +15,9 @@ class MobileProfileBody extends StatelessWidget {
       children: [
         ColumnFadeInAnimation(
           children: [
-            FirstPart(),
+            FirstPart(
+              isMobile: true,
+            ),
             SizedBox(height: 20),
             Center(
               child: Column(

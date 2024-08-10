@@ -18,16 +18,19 @@ class PieChart2State extends State {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AutoSizeText(
-          "Your statistics :",
-          style: Styles.normal22.copyWith(
-            color: Colors.white,
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: AutoSizeText(
+            "Your statistics :",
+            style: Styles.normal20.copyWith(
+              color: Colors.white,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
         ),
         SizedBox(
-          height: 300,
+          height: 280,
           child: AspectRatio(
             aspectRatio: 1.3,
             child: Row(

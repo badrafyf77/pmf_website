@@ -7,14 +7,17 @@ import 'package:pmf_website/core/utils/styles.dart';
 class FirstPart extends StatelessWidget {
   const FirstPart({
     super.key,
+    this.isMobile = false,
   });
+
+  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
-        PmfBackground(),
-        SizedBox(
+        const PmfBackground(),
+        const SizedBox(
           height: 325,
         ),
         Positioned(
@@ -23,11 +26,15 @@ class FirstPart extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              ProfileImage(),
-              SizedBox(
+              ProfileImage(
+                isMobile: isMobile,
+              ),
+              const SizedBox(
                 width: 10,
               ),
-              ProfileInfo(),
+              ProfileInfo(
+                isMobile: isMobile,
+              ),
             ],
           ),
         ),
@@ -36,12 +43,13 @@ class FirstPart extends StatelessWidget {
   }
 }
 
-
-
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({
     super.key,
+    required this.isMobile,
   });
+
+  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +63,7 @@ class ProfileInfo extends StatelessWidget {
             style: Styles.normal30.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.bold,
+              fontSize: isMobile ? 20 : 30,
             ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -74,13 +83,15 @@ class ProfileInfo extends StatelessWidget {
 }
 
 class ProfileImage extends StatelessWidget {
-  const ProfileImage({super.key});
+  const ProfileImage({super.key, required this.isMobile});
+
+  final bool isMobile;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      width: 150,
+      height: isMobile ? 100 : 150,
+      width: isMobile ? 100 : 150,
       decoration: const BoxDecoration(
         color: Colors.white,
         image: DecorationImage(

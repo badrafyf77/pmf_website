@@ -2,14 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
-import 'package:pmf_website/features/leagues/presentation/views/league_info_view.dart';
+import 'package:pmf_website/features/leagues/presentation/views/league_table_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/leagues_view.dart';
 import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
 
 class AppRouter {
   static const profile = '/';
   static const leagues = '/leagues';
-  static const leagueInfo = '/leagueInfo';
+  static const leagueTable = '/leagueTable';
 
   static final router = GoRouter(
     routes: [
@@ -38,10 +38,10 @@ class AppRouter {
         ),
       ),
       GoRoute(
-        path: leagueInfo,
+        path: leagueTable,
         pageBuilder: (context, state) => const NoTransitionPage(
           child: MouseFollowerWidget(
-            child: LeagueInfoView(),
+            child: LeagueTableView(),
           ),
         ),
       ),

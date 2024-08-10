@@ -44,7 +44,7 @@ class LeagueInfo extends StatelessWidget {
         const SizedBox(height: 20),
         CustomButton(
           onPressed: () {
-            AppRouter.navigateTo(context, AppRouter.leagueInfo);
+            AppRouter.navigateTo(context, AppRouter.leagueTable);
           },
           textButton: "See more",
           backgroundColor: AppColors.kPrimaryColor,
