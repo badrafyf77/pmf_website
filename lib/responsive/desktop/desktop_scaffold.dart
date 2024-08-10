@@ -6,22 +6,16 @@ class DesktopScaffold extends StatelessWidget {
   const DesktopScaffold({
     super.key,
     required this.body,
-    required this.isHomeSelected,
-    required this.isAboutSelected,
-    required this.isEventsSelected,
+    required this.isProfileSelected,
+    required this.isLeaguesSelected,
+    required this.isCupsSelected,
     required this.isTrophiesSelected,
-    required this.isGallerySelected,
-    required this.isUserTermsSelected,
-    required this.isPartnersSelected,
   });
 
-  final bool isHomeSelected;
-  final bool isAboutSelected;
-  final bool isEventsSelected;
+  final bool isProfileSelected;
+  final bool isLeaguesSelected;
+  final bool isCupsSelected;
   final bool isTrophiesSelected;
-  final bool isGallerySelected;
-  final bool isUserTermsSelected;
-  final bool isPartnersSelected;
   final Widget body;
 
   @override
@@ -31,13 +25,10 @@ class DesktopScaffold extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: DesktopAppBar(
-          isProfileSelected: isHomeSelected,
-          isAboutSelected: isAboutSelected,
-          isEventsSelected: isEventsSelected,
-          isActivitiesSelected: isTrophiesSelected,
-          isGallerySelected: isGallerySelected,
-          isUserTermsSelected: isUserTermsSelected,
-          isPartnersSelected: isPartnersSelected,
+          isProfileSelected: isProfileSelected,
+          isLeaguesSelected: isLeaguesSelected,
+          isCupsSelected: isCupsSelected,
+          isTrophiesSelected: isTrophiesSelected,
         ),
         body: body,
       ),

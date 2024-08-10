@@ -90,6 +90,9 @@ class LeagueTable extends StatelessWidget {
     return data.map((p) {
       i++;
       return DataRow(
+        color: WidgetStatePropertyAll(((i % 2) == 0)
+            ? AppColors.kSecondColor
+            : Colors.grey.withAlpha(50)),
         cells: [
           DataCell(
             CellRowItem(

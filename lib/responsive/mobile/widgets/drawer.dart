@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mouse_follower/mouse_follower.dart';
 import 'package:pmf_website/core/config/app_router.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
-import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/responsive/mobile/widgets/drawer_item.dart';
@@ -62,26 +61,27 @@ class MobileDrawer extends StatelessWidget {
             DrawerItem(
               text: 'CUPS',
               icon: Icons.event,
-              onTap: () {},
+              onTap: () {
+                AppRouter.navigateTo(context, AppRouter.cups);
+              },
             ),
             DrawerItem(
               text: 'TROPHIES',
               icon: Icons.assignment,
               onTap: () {
-                AppRouter.navigateTo(context, AppRouter.leagues);
+                AppRouter.navigateTo(context, AppRouter.trophies);
               },
             ),
             const SizedBox(
               height: 15,
             ),
-            CustomButton(
+            IconButton(
               onPressed: () {},
-              textButton: 'Settings',
-              backgroundColor: AppColors.kPrimaryColor,
-              height: 35,
-              width: 130,
-              radius: 10,
-              textColor: Colors.black,
+              icon: const Icon(
+                Icons.person,
+                color: AppColors.kPrimaryColor,
+                size: 35,
+              ),
             ),
           ],
         ),

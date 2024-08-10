@@ -8,22 +8,16 @@ import 'package:pmf_website/responsive/desktop/widgets/appbar_item.dart';
 class AppbarContent extends StatelessWidget {
   const AppbarContent({
     super.key,
-    required this.isHomeSelected,
-    required this.isAboutSelected,
-    required this.isEventsSelected,
-    required this.isActivitiesSelected,
-    required this.isGallerySelected,
-    required this.isUserTermsSelected,
-    required this.isPartnersSelected,
+    required this.isProfileSelected,
+    required this.isLeaguesSelected,
+    required this.isCupsSelected,
+    required this.isTrophiesSelected,
   });
 
-  final bool isHomeSelected;
-  final bool isAboutSelected;
-  final bool isEventsSelected;
-  final bool isActivitiesSelected;
-  final bool isGallerySelected;
-  final bool isUserTermsSelected;
-  final bool isPartnersSelected;
+  final bool isProfileSelected;
+  final bool isLeaguesSelected;
+  final bool isCupsSelected;
+  final bool isTrophiesSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +26,20 @@ class AppbarContent extends StatelessWidget {
       children: [
         const AppLogo(),
         AppbarItems(
-          isHomeSelected: isHomeSelected,
-          isAboutSelected: isAboutSelected,
-          isEventsSelected: isEventsSelected,
-          isActivitiesSelected: isActivitiesSelected,
-          isGallerySelected: isGallerySelected,
-          isUserTermsSelected: isUserTermsSelected,
-          isPartnersSelected: isPartnersSelected,
+          isProfileSelected: isProfileSelected,
+          isLeaguesSelected: isLeaguesSelected,
+          isCupsSelected: isCupsSelected,
+          isTrophiesSelected: isTrophiesSelected,
         ),
-        const ContactButton(),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.person,
+            color: AppColors.kPrimaryColor,
+            size: 35,
+          ),
+          highlightColor: Colors.white,
+        ),
       ],
     );
   }
@@ -65,22 +64,16 @@ class ContactButton extends StatelessWidget {
 class AppbarItems extends StatelessWidget {
   const AppbarItems({
     super.key,
-    required this.isHomeSelected,
-    required this.isAboutSelected,
-    required this.isEventsSelected,
-    required this.isActivitiesSelected,
-    required this.isGallerySelected,
-    required this.isUserTermsSelected,
-    required this.isPartnersSelected,
+    required this.isProfileSelected,
+    required this.isLeaguesSelected,
+    required this.isCupsSelected,
+    required this.isTrophiesSelected,
   });
 
-  final bool isHomeSelected;
-  final bool isAboutSelected;
-  final bool isEventsSelected;
-  final bool isActivitiesSelected;
-  final bool isGallerySelected;
-  final bool isUserTermsSelected;
-  final bool isPartnersSelected;
+  final bool isProfileSelected;
+  final bool isLeaguesSelected;
+  final bool isCupsSelected;
+  final bool isTrophiesSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +86,7 @@ class AppbarItems extends StatelessWidget {
       child: Row(
         children: [
           AppBarItem(
-            isSelected: isHomeSelected,
+            isSelected: isProfileSelected,
             text: 'PROFILE',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.profile);
@@ -101,7 +94,7 @@ class AppbarItems extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           AppBarItem(
-            isSelected: isAboutSelected,
+            isSelected: isLeaguesSelected,
             text: 'LEAGUES',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.leagues);
@@ -109,13 +102,15 @@ class AppbarItems extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           AppBarItem(
-            isSelected: isEventsSelected,
+            isSelected: isCupsSelected,
             text: 'CUPS',
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, AppRouter.cups);
+            },
           ),
           const SizedBox(width: 8),
           AppBarItem(
-            isSelected: isActivitiesSelected,
+            isSelected: isTrophiesSelected,
             text: 'TROPHIES',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.trophies);

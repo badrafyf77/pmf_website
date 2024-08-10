@@ -9,10 +9,7 @@ class GeneralScaffold extends StatelessWidget {
     this.isProfileSelected = false,
     this.isLeaguesSelected = false,
     this.isTrophiesSelected = false,
-    this.isGallerySelected = false,
-    this.isUserTermsSelected = false,
-    this.isPartnersSelected = false,
-    this.isEventsSelected = false,
+    this.isCupsSelected = false,
     required this.desktopBody,
     required this.tabletBody,
     required this.mobileBody,
@@ -20,11 +17,8 @@ class GeneralScaffold extends StatelessWidget {
 
   final bool isProfileSelected;
   final bool isLeaguesSelected;
-  final bool isEventsSelected;
+  final bool isCupsSelected;
   final bool isTrophiesSelected;
-  final bool isGallerySelected;
-  final bool isUserTermsSelected;
-  final bool isPartnersSelected;
   final Widget desktopBody;
   final Widget tabletBody;
   final Widget mobileBody;
@@ -34,13 +28,10 @@ class GeneralScaffold extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 920) {
         return DesktopScaffold(
-          isHomeSelected: isProfileSelected,
-          isAboutSelected: isLeaguesSelected,
-          isEventsSelected: isEventsSelected,
+          isProfileSelected: isProfileSelected,
+          isLeaguesSelected: isLeaguesSelected,
+          isCupsSelected: isCupsSelected,
           isTrophiesSelected: isTrophiesSelected,
-          isGallerySelected: isGallerySelected,
-          isUserTermsSelected: isUserTermsSelected,
-          isPartnersSelected: isPartnersSelected,
           body: desktopBody,
         );
       }

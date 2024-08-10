@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pmf_website/core/utils/customs/custom_gridview_animation_config.dart';
 import 'package:pmf_website/core/utils/customs/views_title.dart';
 import 'package:pmf_website/features/trophies/presentation/views/widgets/trophie_card.dart';
 
@@ -38,11 +37,7 @@ class TrophiesList extends StatelessWidget {
       ),
       itemCount: 5,
       itemBuilder: (context, index) {
-        return CustomGridviewAnimationConfig(
-          index: index,
-          columnCount: 5,
-          child: const TrophieCard(),
-        );
+        return const TrophieCard();
       },
     );
   }

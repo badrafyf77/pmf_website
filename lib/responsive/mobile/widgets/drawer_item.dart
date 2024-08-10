@@ -21,10 +21,7 @@ class DrawerItem extends StatelessWidget {
       hoverColor: AppColors.kPrimaryColor.withAlpha(150),
       onTap: onTap,
       child: ListTile(
-        leading: Icon(
-          icon,
-          size: 30,
-        ),
+        leading: const SizedBox(),
         title: Text(
           text,
           style: Styles.normal12.copyWith(
