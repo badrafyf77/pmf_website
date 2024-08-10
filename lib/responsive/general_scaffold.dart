@@ -8,7 +8,7 @@ class GeneralScaffold extends StatelessWidget {
     super.key,
     this.isProfileSelected = false,
     this.isLeaguesSelected = false,
-    this.isActivitiesSelected = false,
+    this.isTrophiesSelected = false,
     this.isGallerySelected = false,
     this.isUserTermsSelected = false,
     this.isPartnersSelected = false,
@@ -21,7 +21,7 @@ class GeneralScaffold extends StatelessWidget {
   final bool isProfileSelected;
   final bool isLeaguesSelected;
   final bool isEventsSelected;
-  final bool isActivitiesSelected;
+  final bool isTrophiesSelected;
   final bool isGallerySelected;
   final bool isUserTermsSelected;
   final bool isPartnersSelected;
@@ -37,7 +37,7 @@ class GeneralScaffold extends StatelessWidget {
           isHomeSelected: isProfileSelected,
           isAboutSelected: isLeaguesSelected,
           isEventsSelected: isEventsSelected,
-          isActivitiesSelected: isActivitiesSelected,
+          isTrophiesSelected: isTrophiesSelected,
           isGallerySelected: isGallerySelected,
           isUserTermsSelected: isUserTermsSelected,
           isPartnersSelected: isPartnersSelected,

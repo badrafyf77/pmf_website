@@ -19,7 +19,7 @@ class ProfileStats extends StatelessWidget {
             children: [
               StatCard(
                 value: 1,
-                title: "Serie 1 ranking",
+                title: "Your league ranking",
               ),
               SizedBox(width: 4),
               StatCard(
@@ -38,7 +38,7 @@ class ProfileStats extends StatelessWidget {
             children: [
               StatCard(
                 value: 1,
-                title: "Serie 1 ranking",
+                title: "Your league ranking",
                 isMobile: true,
               ),
               SizedBox(height: 4),

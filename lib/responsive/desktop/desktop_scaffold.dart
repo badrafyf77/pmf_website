@@ -9,7 +9,7 @@ class DesktopScaffold extends StatelessWidget {
     required this.isHomeSelected,
     required this.isAboutSelected,
     required this.isEventsSelected,
-    required this.isActivitiesSelected,
+    required this.isTrophiesSelected,
     required this.isGallerySelected,
     required this.isUserTermsSelected,
     required this.isPartnersSelected,
@@ -18,7 +18,7 @@ class DesktopScaffold extends StatelessWidget {
   final bool isHomeSelected;
   final bool isAboutSelected;
   final bool isEventsSelected;
-  final bool isActivitiesSelected;
+  final bool isTrophiesSelected;
   final bool isGallerySelected;
   final bool isUserTermsSelected;
   final bool isPartnersSelected;
@@ -34,7 +34,7 @@ class DesktopScaffold extends StatelessWidget {
           isProfileSelected: isHomeSelected,
           isAboutSelected: isAboutSelected,
           isEventsSelected: isEventsSelected,
-          isActivitiesSelected: isActivitiesSelected,
+          isActivitiesSelected: isTrophiesSelected,
           isGallerySelected: isGallerySelected,
           isUserTermsSelected: isUserTermsSelected,
           isPartnersSelected: isPartnersSelected,

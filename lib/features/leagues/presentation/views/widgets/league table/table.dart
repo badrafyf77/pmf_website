@@ -130,18 +130,18 @@ class LeagueTable extends StatelessWidget {
           DataCell(
             CellRowItem(
               title: p.scored.toString(),
-              fontColor: Colors.green,
+              fontColor: Colors.grey,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.conceded.toString(),
-              fontColor: Colors.red,
+              fontColor: Colors.grey,
             ),
           ),
           DataCell(
             CellRowItem(
-              title: p.goalDef.toString(),
+              title: p.goalDef > 0 ? "+${p.goalDef}" : p.goalDef.toString(),
               fontColor: p.goalDef >= 0 ? Colors.green : Colors.red,
             ),
           ),

@@ -9,14 +9,10 @@ class LeagueBarItems extends StatelessWidget {
     super.key,
     required this.isTableSelected,
     required this.isMatchesSelected,
-    required this.isPlayersSelected,
-    required this.isStatsSelected,
   });
 
   final bool isTableSelected;
   final bool isMatchesSelected;
-  final bool isPlayersSelected;
-  final bool isStatsSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +25,8 @@ class LeagueBarItems extends StatelessWidget {
           child: Row(
             children: [
               LeagueBarItem(
-                value: "Table",
-                lineWidth: 52,
+                value: "TABLE",
+                lineWidth: 45,
                 onTap: () {
                   AppRouter.navigateTo(context, AppRouter.leagueTable);
                 },
@@ -38,30 +34,12 @@ class LeagueBarItems extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               LeagueBarItem(
-                value: "Matches",
-                lineWidth: 77,
+                value: "MATCHES",
+                lineWidth: 65,
                 onTap: () {
                   AppRouter.navigateTo(context, AppRouter.leagueMatches);
                 },
                 isSelected: isMatchesSelected,
-              ),
-              const SizedBox(width: 10),
-              LeagueBarItem(
-                value: "Players",
-                lineWidth: 75,
-                onTap: () {
-                  AppRouter.navigateTo(context, AppRouter.leagues);
-                },
-                isSelected: isPlayersSelected,
-              ),
-              const SizedBox(width: 10),
-              LeagueBarItem(
-                value: "Statestiques",
-                lineWidth: 113,
-                onTap: () {
-                  AppRouter.navigateTo(context, AppRouter.leagues);
-                },
-                isSelected: isStatsSelected,
               ),
             ],
           ),

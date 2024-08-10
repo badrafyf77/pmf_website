@@ -19,6 +19,7 @@ class LeagueCardMobile extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                const SizedBox(width: 15),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -35,6 +36,7 @@ class LeagueCardMobile extends StatelessWidget {
                     const LeagueInfoMobile(),
                   ],
                 ),
+                const SizedBox(width: 15),
                 const LeaguePrizesMobile(),
               ],
             ),

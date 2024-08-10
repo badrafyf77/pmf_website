@@ -46,28 +46,30 @@ class MobileDrawer extends StatelessWidget {
               ),
             ),
             DrawerItem(
-              text: 'Profile',
+              text: 'PROFILE',
               icon: Icons.home,
               onTap: () {
                 AppRouter.navigateTo(context, AppRouter.profile);
               },
             ),
             DrawerItem(
-              text: 'Leagues',
+              text: 'LEAGUES',
               icon: Icons.info,
               onTap: () {
                 AppRouter.navigateTo(context, AppRouter.leagues);
               },
             ),
             DrawerItem(
-              text: 'Cups',
+              text: 'CUPS',
               icon: Icons.event,
               onTap: () {},
             ),
             DrawerItem(
-              text: 'Trophies',
+              text: 'TROPHIES',
               icon: Icons.assignment,
-              onTap: () {},
+              onTap: () {
+                AppRouter.navigateTo(context, AppRouter.leagues);
+              },
             ),
             const SizedBox(
               height: 15,

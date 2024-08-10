@@ -94,7 +94,7 @@ class AppbarItems extends StatelessWidget {
         children: [
           AppBarItem(
             isSelected: isHomeSelected,
-            text: 'Profile',
+            text: 'PROFILE',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.profile);
             },
@@ -102,7 +102,7 @@ class AppbarItems extends StatelessWidget {
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isAboutSelected,
-            text: 'Leagues',
+            text: 'LEAGUES',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.leagues);
             },
@@ -110,14 +110,16 @@ class AppbarItems extends StatelessWidget {
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isEventsSelected,
-            text: 'Cups',
+            text: 'CUPS',
             onPressed: () {},
           ),
           const SizedBox(width: 8),
           AppBarItem(
             isSelected: isActivitiesSelected,
-            text: 'Trophies',
-            onPressed: () {},
+            text: 'TROPHIES',
+            onPressed: () {
+              AppRouter.navigateTo(context, AppRouter.trophies);
+            },
           ),
         ],
       ),
