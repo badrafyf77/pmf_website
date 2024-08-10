@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues_body.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/leagues_body.dart';
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class LeaguesView extends StatelessWidget {

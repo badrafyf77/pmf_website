@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/desktop/league_info.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/desktop/league_prizes.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_info.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_prizes.dart';
 
 class LeagueCard extends StatelessWidget {
   const LeagueCard({super.key});

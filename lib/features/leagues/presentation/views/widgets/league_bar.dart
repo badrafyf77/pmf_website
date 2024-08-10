@@ -41,7 +41,7 @@ class LeagueBar extends StatelessWidget {
           isPlayersSelected: isPlayersSelected,
           isStatsSelected: isStatsSelected,
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 10),
       ],
     );
   }

@@ -41,7 +41,7 @@ class LeagueBarItems extends StatelessWidget {
                 value: "Matches",
                 lineWidth: 77,
                 onTap: () {
-                  AppRouter.navigateTo(context, AppRouter.leagues);
+                  AppRouter.navigateTo(context, AppRouter.leagueMatches);
                 },
                 isSelected: isMatchesSelected,
               ),

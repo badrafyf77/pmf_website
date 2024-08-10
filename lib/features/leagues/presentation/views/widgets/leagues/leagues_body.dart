@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:pmf_website/core/utils/customs/app_footer.dart';
 import 'package:pmf_website/core/utils/customs/custom_listview_animation_config.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/desktop/league_card.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/mobile/league_card_mobile.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_card.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_card_mobile.dart';
 
 class LeaguesBody extends StatelessWidget {
   const LeaguesBody({super.key, this.isMobile = false});

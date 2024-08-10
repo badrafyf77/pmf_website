@@ -98,7 +98,7 @@ class LeagueTable extends StatelessWidget {
                   ? Colors.red
                   : (i <= 4)
                       ? Colors.green
-                      : Colors.white,
+                      : Colors.grey,
             ),
           ),
           DataCell(
