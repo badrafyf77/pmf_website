@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pmf_website/core/models/player_model.dart';
 import 'package:pmf_website/core/utils/customs/app_footer.dart';
 import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
@@ -12,17 +13,19 @@ class LeagueTableBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView(
+    return CustomListView(
       children: [
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LeagueBar(
+            const LeagueBar(
               isTableSelected: true,
             ),
-            LeagueTable(),
-            SizedBox(height: 30),
-            AppFooter(),
+            StandingTable(
+              playersList: List.from(leaguePlayers),
+            ),
+            const SizedBox(height: 30),
+            const AppFooter(),
           ],
         ),
       ],

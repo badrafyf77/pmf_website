@@ -24,7 +24,7 @@ class Player {
   });
 }
 
-List<Player> palyers = [
+List<Player> leaguePlayers = [
   Player(
       id: 1,
       name: "John Doe",
@@ -245,4 +245,51 @@ List<Player> palyers = [
       conceded: 15,
       goalDef: 10,
       pts: 38)
+];
+
+List<Player> groupPlayers = [
+  Player(
+      id: 1,
+      name: "John Doe",
+      played: 20,
+      wins: 12,
+      draws: 5,
+      losses: 3,
+      scored: 30,
+      conceded: 15,
+      goalDef: 15,
+      pts: 41),
+  Player(
+      id: 2,
+      name: "Jane Smith",
+      played: 20,
+      wins: 10,
+      draws: 7,
+      losses: 3,
+      scored: 25,
+      conceded: 18,
+      goalDef: 7,
+      pts: 37),
+  Player(
+      id: 3,
+      name: "Alex Johnson",
+      played: 20,
+      wins: 8,
+      draws: 8,
+      losses: 4,
+      scored: 20,
+      conceded: 14,
+      goalDef: 6,
+      pts: 32),
+  Player(
+      id: 4,
+      name: "Chris Brown",
+      played: 20,
+      wins: 14,
+      draws: 3,
+      losses: 3,
+      scored: 35,
+      conceded: 12,
+      goalDef: 23,
+      pts: 45),
 ];

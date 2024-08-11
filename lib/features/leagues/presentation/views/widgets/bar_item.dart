@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/horizontal_line.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
-class LeagueBarItem extends StatelessWidget {
-  const LeagueBarItem({
+class BarItem extends StatelessWidget {
+  const BarItem({
     super.key,
     this.isSelected = false,
     required this.value,

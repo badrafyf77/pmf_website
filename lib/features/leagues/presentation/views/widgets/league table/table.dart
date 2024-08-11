@@ -3,14 +3,15 @@ import 'package:pmf_website/core/models/player_model.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
-class LeagueTable extends StatelessWidget {
-  const LeagueTable({super.key});
+class StandingTable extends StatelessWidget {
+  const StandingTable({super.key, required this.playersList});
+
+  final List<Player> playersList;
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> data = List.from(
-      palyers,
-    )..sort((a, b) {
+    final List<Player> data = playersList
+      ..sort((a, b) {
         int ptsComparison = b.pts.compareTo(a.pts);
         if (ptsComparison != 0) return ptsComparison;
 
@@ -41,7 +42,7 @@ class LeagueTable extends StatelessWidget {
                   color: Colors.black,
                 ),
                 horizontalMargin: 0,
-                columnSpacing: 5,
+                columnSpacing: 2,
               ),
             ),
           ),
@@ -90,62 +91,57 @@ class LeagueTable extends StatelessWidget {
     return data.map((p) {
       i++;
       return DataRow(
-        color: WidgetStatePropertyAll(((i % 2) == 0)
-            ? AppColors.kSecondColor
-            : Colors.grey.withAlpha(50)),
         cells: [
           DataCell(
             CellRowItem(
               title: i.toString(),
-              fontColor: (i > 15)
-                  ? Colors.red
-                  : (i <= 4)
-                      ? Colors.green
-                      : Colors.grey,
+              fontColor: Colors.black,
+              backgroundColor: AppColors.kPrimaryColor,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.name,
+              fontColor: Colors.white,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.played.toString(),
-              fontColor: Colors.grey,
+              backgroundColor: AppColors.kSecondColor,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.wins.toString(),
-              fontColor: Colors.green,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.draws.toString(),
-              fontColor: Colors.grey,
+              backgroundColor: AppColors.kSecondColor,
             ),
           ),
           DataCell(
-            CellRowItem(title: p.losses.toString(), fontColor: Colors.red),
+            CellRowItem(
+              title: p.losses.toString(),
+            ),
           ),
           DataCell(
             CellRowItem(
               title: p.scored.toString(),
-              fontColor: Colors.grey,
+              backgroundColor: AppColors.kSecondColor,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.conceded.toString(),
-              fontColor: Colors.grey,
             ),
           ),
           DataCell(
             CellRowItem(
               title: p.goalDef > 0 ? "+${p.goalDef}" : p.goalDef.toString(),
-              fontColor: p.goalDef >= 0 ? Colors.green : Colors.red,
+              backgroundColor: AppColors.kSecondColor,
             ),
           ),
           DataCell(
@@ -185,23 +181,34 @@ class CellColumnItem extends StatelessWidget {
 }
 
 class CellRowItem extends StatelessWidget {
-  const CellRowItem({super.key, required this.title, this.fontColor});
+  const CellRowItem({
+    super.key,
+    required this.title,
+    this.fontColor = Colors.white,
+    this.backgroundColor,
+  });
 
   final String title;
   final Color? fontColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          title,
-          style: Styles.normal16.copyWith(color: fontColor),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+    return SizedBox.expand(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 3),
+        color: backgroundColor,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            title,
+            style: Styles.normal16.copyWith(color: fontColor),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+          ),
         ),
-      ],
+      ),
     );
   }
 }

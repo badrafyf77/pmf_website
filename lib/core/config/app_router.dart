@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
+import 'package:pmf_website/features/cups/presentation/views/cup_table_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cups_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_matches_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_table_view.dart';
@@ -15,6 +16,7 @@ class AppRouter {
   static const leagueTable = '/leagueTable';
   static const leagueMatches = '/leagueMatches';
   static const cups = '/cups';
+  static const cupTable = '/cupTable';
   static const trophies = '/trophies';
 
   static final router = GoRouter(
@@ -72,6 +74,14 @@ class AppRouter {
         pageBuilder: (context, state) => const NoTransitionPage(
           child: MouseFollowerWidget(
             child: TrophiesView(),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: cupTable,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: CupTableView(),
           ),
         ),
       ),

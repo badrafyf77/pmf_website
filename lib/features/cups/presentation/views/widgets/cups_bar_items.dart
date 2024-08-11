@@ -4,15 +4,17 @@ import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/horizontal_line.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/bar_item.dart';
 
-class LeagueBarItems extends StatelessWidget {
-  const LeagueBarItems({
+class CupBarItems extends StatelessWidget {
+  const CupBarItems({
     super.key,
     required this.isTableSelected,
-    required this.isMatchesSelected,
+    required this.isGroupsMatchesSelected,
+    required this.isKnockoutSelected,
   });
 
   final bool isTableSelected;
-  final bool isMatchesSelected;
+  final bool isGroupsMatchesSelected;
+  final bool isKnockoutSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +34,23 @@ class LeagueBarItems extends StatelessWidget {
                     value: "TABLE",
                     lineWidth: 45,
                     onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.leagueTable);
+                      AppRouter.navigateTo(context, AppRouter.cupTable);
                     },
                     isSelected: isTableSelected,
                   ),
                   const SizedBox(width: 10),
                   BarItem(
-                    value: "MATCHES",
-                    lineWidth: 65,
-                    onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.leagueMatches);
-                    },
-                    isSelected: isMatchesSelected,
+                    value: "GROUPS MATCHES",
+                    lineWidth: 137,
+                    onTap: () {},
+                    isSelected: isGroupsMatchesSelected,
+                  ),
+                  const SizedBox(width: 10),
+                  BarItem(
+                    value: "KNOCKOUT STAGE",
+                    lineWidth: 85,
+                    onTap: () {},
+                    isSelected: isKnockoutSelected,
                   ),
                 ],
               ),
