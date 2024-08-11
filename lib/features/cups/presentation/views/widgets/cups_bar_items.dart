@@ -42,14 +42,18 @@ class CupBarItems extends StatelessWidget {
                   BarItem(
                     value: "GROUPS MATCHES",
                     lineWidth: 137,
-                    onTap: () {},
+                    onTap: () {
+                      AppRouter.navigateTo(context, AppRouter.cupGroupsMatches);
+                    },
                     isSelected: isGroupsMatchesSelected,
                   ),
                   const SizedBox(width: 10),
                   BarItem(
                     value: "KNOCKOUT STAGE",
-                    lineWidth: 85,
-                    onTap: () {},
+                    lineWidth: 137,
+                    onTap: () {
+                      AppRouter.navigateTo(context, AppRouter.cupKnockoutStage);
+                    },
                     isSelected: isKnockoutSelected,
                   ),
                 ],

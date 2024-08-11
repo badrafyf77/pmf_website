@@ -21,7 +21,7 @@ class WeeksRow extends StatelessWidget {
         ),
         const SizedBox(width: 50),
         Text(
-          "Week 28",
+          "Week 2",
           style: Styles.normal20.copyWith(
             fontWeight: FontWeight.bold,
             color: Colors.grey,
