@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/views_title.dart';
-import 'package:pmf_website/features/trophies/presentation/views/widgets/trophie_card.dart';
+import 'package:pmf_website/features/home/presentation/views/widgets/trophie_card.dart';
 
 class Trophies extends StatelessWidget {
   const Trophies({super.key, required this.title});

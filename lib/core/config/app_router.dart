@@ -6,14 +6,16 @@ import 'package:pmf_website/features/cups/presentation/views/cup_groups_matches_
 import 'package:pmf_website/features/cups/presentation/views/cup_knockout_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_table_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cups_view.dart';
+import 'package:pmf_website/features/home/presentation/views/home_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_matches_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_table_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/leagues_view.dart';
 import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
-import 'package:pmf_website/features/trophies/presentation/views/trophies_view.dart';
+import 'package:pmf_website/features/home/presentation/views/trophies_view.dart';
 
 class AppRouter {
-  static const profile = '/';
+  static const home = '/';
+  static const profile = '/profile';
   static const leagues = '/leagues';
   static const leagueTable = '/league-table';
   static const leagueMatches = '/league-matches';
@@ -25,6 +27,14 @@ class AppRouter {
 
   static final router = GoRouter(
     routes: [
+      GoRoute(
+        path: home,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: HomeView(),
+          ),
+        ),
+      ),
       GoRoute(
           path: profile,
           pageBuilder: (context, state) {

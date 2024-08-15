@@ -8,16 +8,20 @@ import 'package:pmf_website/responsive/desktop/widgets/appbar_item.dart';
 class AppbarContent extends StatelessWidget {
   const AppbarContent({
     super.key,
+    required this.isHomeAppbar,
+    required this.isHomeSelected,
+    required this.isTrophiesSelected,
     required this.isProfileSelected,
     required this.isLeaguesSelected,
     required this.isCupsSelected,
-    required this.isTrophiesSelected,
   });
 
+  final bool isHomeAppbar;
+  final bool isHomeSelected;
+  final bool isTrophiesSelected;
   final bool isProfileSelected;
   final bool isLeaguesSelected;
   final bool isCupsSelected;
-  final bool isTrophiesSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -25,38 +29,43 @@ class AppbarContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const AppLogo(),
-        AppbarItems(
-          isProfileSelected: isProfileSelected,
-          isLeaguesSelected: isLeaguesSelected,
-          isCupsSelected: isCupsSelected,
-          isTrophiesSelected: isTrophiesSelected,
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.person,
-            color: AppColors.kPrimaryColor,
-            size: 35,
-          ),
-          highlightColor: Colors.white,
-        ),
+        isHomeAppbar
+            ? HomeAppbarItems(
+                isHomeSelected: isHomeSelected,
+                isTrophiesSelected: isTrophiesSelected)
+            : AppbarItems(
+                isProfileSelected: isProfileSelected,
+                isLeaguesSelected: isLeaguesSelected,
+                isCupsSelected: isCupsSelected,
+              ),
+        isHomeAppbar
+            ? const SignInButton()
+            : IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.person,
+                  color: AppColors.kPrimaryColor,
+                  size: 35,
+                ),
+                highlightColor: Colors.white,
+              ),
       ],
     );
   }
 }
 
-class ContactButton extends StatelessWidget {
-  const ContactButton({super.key});
+class SignInButton extends StatelessWidget {
+  const SignInButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CustomButton(
       onPressed: () {},
-      textButton: 'Settings',
+      textButton: 'Sign In',
       backgroundColor: AppColors.kPrimaryColor,
       textColor: Colors.black,
       height: 35,
-      width: MediaQuery.of(context).size.width * 0.13,
+      width: 120,
     );
   }
 }
@@ -67,13 +76,11 @@ class AppbarItems extends StatelessWidget {
     required this.isProfileSelected,
     required this.isLeaguesSelected,
     required this.isCupsSelected,
-    required this.isTrophiesSelected,
   });
 
   final bool isProfileSelected;
   final bool isLeaguesSelected;
   final bool isCupsSelected;
-  final bool isTrophiesSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +113,39 @@ class AppbarItems extends StatelessWidget {
             text: 'CUPS',
             onPressed: () {
               AppRouter.navigateTo(context, AppRouter.cups);
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HomeAppbarItems extends StatelessWidget {
+  const HomeAppbarItems({
+    super.key,
+    required this.isHomeSelected,
+    required this.isTrophiesSelected,
+  });
+
+  final bool isHomeSelected;
+  final bool isTrophiesSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 70,
+      decoration: const BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+      ),
+      child: Row(
+        children: [
+          AppBarItem(
+            isSelected: isHomeSelected,
+            text: 'HOME',
+            onPressed: () {
+              AppRouter.navigateTo(context, AppRouter.home);
             },
           ),
           const SizedBox(width: 8),

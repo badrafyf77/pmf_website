@@ -7,9 +7,11 @@ class TabletScaffold extends StatelessWidget {
   const TabletScaffold({
     super.key,
     required this.body,
+    required this.isHomeAppbar,
   });
 
   final Widget body;
+  final bool isHomeAppbar;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,8 @@ class TabletScaffold extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: const MobileAppBar(),
-        endDrawer: const MobileDrawer(),
+        endDrawer:
+            isHomeAppbar ? const MobileHomeDrawer() : const MobileDrawer(),
         body: body,
       ),
     );

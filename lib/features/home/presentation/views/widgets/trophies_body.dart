@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/app_footer.dart';
 import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
-import 'package:pmf_website/features/trophies/presentation/views/widgets/trophie_list.dart';
+import 'package:pmf_website/features/home/presentation/views/widgets/trophie_list.dart';
 
 class TrophiesBody extends StatelessWidget {
   const TrophiesBody({super.key});
