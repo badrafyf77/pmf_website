@@ -123,10 +123,10 @@ class MobileHomeDrawer extends StatelessWidget {
               ),
             ),
             DrawerItem(
-              text: 'PROFILE',
+              text: 'HOME',
               icon: Icons.home,
               onTap: () {
-                AppRouter.navigateTo(context, AppRouter.profile);
+                AppRouter.navigateTo(context, AppRouter.home);
               },
             ),
             DrawerItem(
