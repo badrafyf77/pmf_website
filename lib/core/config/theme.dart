@@ -4,11 +4,12 @@ import 'package:pmf_website/core/utils/app_colors.dart';
 
 class AppThemes {
   static final appTheme = ThemeData(
+    primaryColor: AppColors.kPrimaryColor,
     scaffoldBackgroundColor: Colors.black,
     fontFamily: GoogleFonts.akatab().fontFamily,
-    colorScheme: const ColorScheme.light(
+    colorScheme: ColorScheme.light(
       primary: AppColors.kPrimaryColor,
-      secondary: Color(0xFFD8E307),
+      secondary: AppColors.kSecondColor,
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -16,5 +17,6 @@ class AppThemes {
       elevation: 0.0,
       toolbarHeight: 100,
     ),
+    
   );
 }

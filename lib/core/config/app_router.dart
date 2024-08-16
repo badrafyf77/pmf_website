@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
+import 'package:pmf_website/features/auth/presentation/views/sign_in_view.dart';
+import 'package:pmf_website/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_groups_matches_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_knockout_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_table_view.dart';
@@ -15,6 +17,9 @@ import 'package:pmf_website/features/home/presentation/views/trophies_view.dart'
 
 class AppRouter {
   static const home = '/';
+  static const trophies = '/trophies';
+  static const signIn = '/sign-in';
+  static const signUp = '/sign-up';
   static const profile = '/profile';
   static const leagues = '/leagues';
   static const leagueTable = '/league-table';
@@ -23,7 +28,6 @@ class AppRouter {
   static const cupTable = '/cup-table';
   static const cupGroupsMatches = '/cup-groups-matches';
   static const cupKnockoutStage = '/cup-knockout-stage';
-  static const trophies = '/trophies';
 
   static final router = GoRouter(
     routes: [
@@ -32,6 +36,22 @@ class AppRouter {
         pageBuilder: (context, state) => const NoTransitionPage(
           child: MouseFollowerWidget(
             child: HomeView(),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: signIn,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: SignInView(),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: signUp,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: SignUpView(),
           ),
         ),
       ),

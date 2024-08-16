@@ -60,7 +60,9 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      onPressed: () {},
+      onPressed: () {
+        AppRouter.navigateTo(context, AppRouter.signIn);
+      },
       textButton: 'Sign In',
       backgroundColor: AppColors.kPrimaryColor,
       textColor: Colors.black,
