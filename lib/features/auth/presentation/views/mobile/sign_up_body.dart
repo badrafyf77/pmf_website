@@ -25,6 +25,7 @@ class MobileSignUpBody extends StatelessWidget {
                 Spacer(),
               ],
             ),
+            SizedBox(height: 50),
           ],
         ),
       ],

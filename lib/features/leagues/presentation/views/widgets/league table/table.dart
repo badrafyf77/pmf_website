@@ -101,7 +101,7 @@ class StandingTable extends StatelessWidget {
           ),
           DataCell(
             CellRowItem(
-              title: p.name,
+              title: p.displayName,
               fontColor: Colors.white,
             ),
           ),

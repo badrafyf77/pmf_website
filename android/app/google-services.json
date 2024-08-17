@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:289024383022:android:f0abc7b38c17c4d939e7bf",
+        "mobilesdk_app_id": "1:289024383022:android:4e1e80470ac05b9639e7bf",
         "android_client_info": {
-          "package_name": "com.f.app"
+          "package_name": "c.a.a"
         }
       },
       "oauth_client": [],
@@ -26,9 +26,142 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:289024383022:android:8152e2803a572cf639e7bf",
+        "mobilesdk_app_id": "1:289024383022:android:2b21855af3e7df7839e7bf",
         "android_client_info": {
-          "package_name": "com.p.app"
+          "package_name": "com.a.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:afa0afe2fdc26c3839e7bf",
+        "android_client_info": {
+          "package_name": "com.a.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:e1de563236a25de339e7bf",
+        "android_client_info": {
+          "package_name": "com.app.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:7b3347e0dbde9ed439e7bf",
+        "android_client_info": {
+          "package_name": "com.app_pmf_app_website.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:c28f5630cc30819039e7bf",
+        "android_client_info": {
+          "package_name": "com.pmf.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:a9eedf4e6c6fbd9539e7bf",
+        "android_client_info": {
+          "package_name": "com.pmfWebsite.com"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:fbc7db29937c191239e7bf",
+        "android_client_info": {
+          "package_name": "com.pmf_website.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289024383022:android:d23f01d2b496952a39e7bf",
+        "android_client_info": {
+          "package_name": "com.s.a"
         }
       },
       "oauth_client": [],

@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class Failure {
   final String errMessage;
@@ -6,6 +6,34 @@ abstract class Failure {
   Failure({
     required this.errMessage,
   });
+}
+
+class FirebaseAuthFailure extends Failure {
+  FirebaseAuthFailure({required super.errMessage});
+
+  factory FirebaseAuthFailure.fromFirebaseAuthException(
+      FirebaseAuthException e) {
+    switch (e.code) {
+      case 'weak-password':
+        {
+          return FirebaseAuthFailure(errMessage: 'Mot de passe faible');
+        }
+      case 'email-already-in-use':
+        {
+          return FirebaseAuthFailure(errMessage: 'Email déjà utilisé');
+        }
+      case 'user-not-found':
+        {
+          return FirebaseAuthFailure(errMessage: 'Utilisateur introuvable');
+        }
+      case 'wrong-password':
+        {
+          return FirebaseAuthFailure(errMessage: 'Mot de passe incorrecte');
+        }
+      default:
+        return FirebaseAuthFailure(errMessage: e.code);
+    }
+  }
 }
 
 class FirestoreFailure extends Failure {

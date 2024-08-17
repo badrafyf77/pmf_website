@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
-class MyTextField extends StatelessWidget {
+class MyTextField extends StatefulWidget {
   const MyTextField({
     super.key,
+    this.obscureText = false,
     this.isTextArea = false,
     required this.controller,
     required this.validator,
@@ -15,6 +16,7 @@ class MyTextField extends StatelessWidget {
   });
 
   final bool isTextArea;
+  final bool obscureText;
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final String hintText;
@@ -23,27 +25,57 @@ class MyTextField extends StatelessWidget {
   final Widget? prefixIcon;
 
   @override
+  State<MyTextField> createState() => _MyTextFieldState();
+}
+
+class _MyTextFieldState extends State<MyTextField> {
+  bool showPass = false;
+  @override
+  void initState() {
+    super.initState();
+    showPass = widget.obscureText;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
+      width: widget.width,
       child: TextFormField(
-        maxLines: isTextArea ? 5 : 1,
-        controller: controller,
-        validator: validator,
+        obscureText: showPass,
+        maxLines: widget.isTextArea ? 5 : 1,
+        controller: widget.controller,
+        validator: widget.validator,
         style: Styles.normal16,
         cursorColor: Colors.white,
         decoration: InputDecoration(
-          hintText: hintText,
+          hintText: widget.hintText,
           hintStyle: Styles.normal16,
           filled: true,
           fillColor: AppColors.kSecondColor,
           iconColor: AppColors.kPrimaryColor,
           prefixIconColor: AppColors.kPrimaryColor,
-          prefixIcon: prefixIcon,
+          prefixIcon: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: widget.prefixIcon,
+          ),
+          suffixIcon: widget.obscureText
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          showPass = !showPass;
+                        });
+                      },
+                      icon: Icon(
+                          showPass ? Icons.visibility : Icons.visibility_off)),
+                )
+              : null,
+          suffixIconColor: AppColors.kPrimaryColor,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(radius)),
+            borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
             borderSide: BorderSide.none,
           ),
           errorStyle: const TextStyle(
@@ -52,14 +84,14 @@ class MyTextField extends StatelessWidget {
             height: 0,
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(widget.radius),
             borderSide: const BorderSide(
               color: Colors.red,
               width: 1.5,
             ),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(radius),
+            borderRadius: BorderRadius.circular(widget.radius),
             borderSide: const BorderSide(
               color: Colors.red,
               width: 1.5,

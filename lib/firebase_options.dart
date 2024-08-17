@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD-MZnVh9TbhxMNBN4K9VWJqOuNMF6hbrI',
-    appId: '1:1035631766526:web:5f538f77e8470158a22eaf',
-    messagingSenderId: '1035631766526',
-    projectId: 'pmf-website',
-    authDomain: 'pmf-website.firebaseapp.com',
-    storageBucket: 'pmf-website.appspot.com',
-    measurementId: 'G-3G8XVJJN02',
+    apiKey: 'AIzaSyA7DVHrYJKeXtjQW-1g75KgMPYseFa7pXU',
+    appId: '1:289024383022:web:5ff9092c8ee0246d39e7bf',
+    messagingSenderId: '289024383022',
+    projectId: 'db-pmf-8e245',
+    authDomain: 'db-pmf-8e245.firebaseapp.com',
+    storageBucket: 'db-pmf-8e245.appspot.com',
+    measurementId: 'G-5BL3CS0372',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCphwgYqiuZgZCITZqATKn1K4jgzorZKrg',
-    appId: '1:1035631766526:android:7960a63e65fb0a74a22eaf',
-    messagingSenderId: '1035631766526',
-    projectId: 'pmf-website',
-    storageBucket: 'pmf-website.appspot.com',
+    apiKey: 'AIzaSyCU_dSgJ5WG-Kmr9OXXpKUkqv_LYfaqs9E',
+    appId: '1:289024383022:android:c28f5630cc30819039e7bf',
+    messagingSenderId: '289024383022',
+    projectId: 'db-pmf-8e245',
+    storageBucket: 'db-pmf-8e245.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDne8OTkVcSDRc8hl3QGteSy02m78pImSM',
-    appId: '1:1035631766526:ios:dc05a8f646b72eeea22eaf',
-    messagingSenderId: '1035631766526',
-    projectId: 'pmf-website',
-    storageBucket: 'pmf-website.appspot.com',
-    iosBundleId: 'com.example.stageWebsite',
+    apiKey: 'AIzaSyCMLA1-bUyugg_A9mrbmkcoIGJIeYvuq0k',
+    appId: '1:289024383022:ios:2319bd8e67f667fc39e7bf',
+    messagingSenderId: '289024383022',
+    projectId: 'db-pmf-8e245',
+    storageBucket: 'db-pmf-8e245.appspot.com',
+    iosBundleId: 'com.example.pmfwebsite',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDne8OTkVcSDRc8hl3QGteSy02m78pImSM',
-    appId: '1:1035631766526:ios:dc05a8f646b72eeea22eaf',
-    messagingSenderId: '1035631766526',
-    projectId: 'pmf-website',
-    storageBucket: 'pmf-website.appspot.com',
-    iosBundleId: 'com.example.stageWebsite',
+    apiKey: 'AIzaSyCMLA1-bUyugg_A9mrbmkcoIGJIeYvuq0k',
+    appId: '1:289024383022:ios:2319bd8e67f667fc39e7bf',
+    messagingSenderId: '289024383022',
+    projectId: 'db-pmf-8e245',
+    storageBucket: 'db-pmf-8e245.appspot.com',
+    iosBundleId: 'com.example.pmfwebsite',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyD-MZnVh9TbhxMNBN4K9VWJqOuNMF6hbrI',
-    appId: '1:1035631766526:web:a37292655b78361ca22eaf',
-    messagingSenderId: '1035631766526',
-    projectId: 'pmf-website',
-    authDomain: 'pmf-website.firebaseapp.com',
-    storageBucket: 'pmf-website.appspot.com',
-    measurementId: 'G-7WQLF7R4QQ',
+    apiKey: 'AIzaSyA7DVHrYJKeXtjQW-1g75KgMPYseFa7pXU',
+    appId: '1:289024383022:web:e88554e1afbfb5e439e7bf',
+    messagingSenderId: '289024383022',
+    projectId: 'db-pmf-8e245',
+    authDomain: 'db-pmf-8e245.firebaseapp.com',
+    storageBucket: 'db-pmf-8e245.appspot.com',
+    measurementId: 'G-VRRWSV7EMS',
   );
+
 }

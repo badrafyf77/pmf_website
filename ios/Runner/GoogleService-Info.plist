@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.pmfWebsite</string>
+	<string>com.example.pmfwebsite</string>
 	<key>PROJECT_ID</key>
 	<string>db-pmf-8e245</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:289024383022:ios:d348a0f18925e7e639e7bf</string>
+	<string>1:289024383022:ios:2319bd8e67f667fc39e7bf</string>
 </dict>
 </plist>

@@ -34,6 +34,7 @@ class SignUpBody extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(height: 50),
           ],
         ),
       ],
