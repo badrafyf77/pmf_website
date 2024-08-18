@@ -8,6 +8,8 @@ import 'package:pmf_website/core/utils/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dart';
 import 'package:pmf_website/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
+import 'package:pmf_website/features/profile/data/repo/profile_repo_implementation.dart';
+import 'package:pmf_website/features/profile/presentation/manager/get%20user%20info%20cubit/get_user_info_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -34,7 +36,11 @@ class MyApp extends StatelessWidget {
             getIt.get<AuthRepoImplement>(),
           ),
         ),
-        
+        BlocProvider(
+          create: (BuildContext context) => GetUserInfoCubit(
+            getIt.get<ProfileRepoImplementation>(),
+          ),
+        ),
       ],
       child: MaterialApp.router(
         title: 'PES MOROCCAN FAMILY',

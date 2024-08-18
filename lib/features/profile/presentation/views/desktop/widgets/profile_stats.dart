@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pmf_website/core/models/user_model.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
@@ -7,55 +8,51 @@ class ProfileStats extends StatelessWidget {
   const ProfileStats({
     super.key,
     this.isMobile = false,
+    required this.user,
   });
 
   final bool isMobile;
+  final UserInformation user;
 
   @override
   Widget build(BuildContext context) {
     return (!isMobile)
-        ? const Row(
+        ? Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              StatCard(
-                value: 1,
-                title: "Your league ranking",
-              ),
-              SizedBox(width: 4),
-              StatCard(
-                value: 234,
-                title: "Matches played",
-              ),
-              SizedBox(width: 4),
-              StatCard(
-                value: 4,
-                title: "Trophies",
-              ),
-            ],
+            children: children(user, isMobile),
           )
-        : const Column(
+        : Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              StatCard(
-                value: 1,
-                title: "Your league ranking",
-                isMobile: true,
-              ),
-              SizedBox(height: 4),
-              StatCard(
-                value: 234,
-                title: "Matches played",
-                isMobile: true,
-              ),
-              SizedBox(height: 4),
-              StatCard(
-                value: 4,
-                title: "Trophies",
-                isMobile: true,
-              ),
-            ],
-          );
+            children: children(user, isMobile));
   }
+}
+
+List<Widget> children(UserInformation user, bool isMobile) {
+  return [
+    StatCard(
+      isMobile: isMobile,
+      value: user.leagueRanking,
+      title: "Your league ranking",
+    ),
+    SizedBox(
+      width: isMobile ? 0 : 5,
+      height: isMobile ? 5 : 0,
+    ),
+    StatCard(
+      isMobile: isMobile,
+      value: user.played,
+      title: "Matches played",
+    ),
+    SizedBox(
+      width: isMobile ? 0 : 5,
+      height: isMobile ? 5 : 0,
+    ),
+    StatCard(
+      isMobile: isMobile,
+      value: 0,
+      title: "Trophies",
+    ),
+  ];
 }
 
 class StatCard extends StatelessWidget {

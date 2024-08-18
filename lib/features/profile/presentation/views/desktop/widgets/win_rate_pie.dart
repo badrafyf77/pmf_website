@@ -1,112 +1,128 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/utils/helpers/calculate_matches_percent.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
 class WinRatePie extends StatefulWidget {
-  const WinRatePie({super.key});
+  const WinRatePie({super.key, required this.user});
+
+  final UserInformation user;
 
   @override
-  State<StatefulWidget> createState() => PieChart2State();
+  State<WinRatePie> createState() => PieChart2State();
 }
 
-class PieChart2State extends State {
+class PieChart2State extends State<WinRatePie> {
   int touchedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 8),
-          child: AutoSizeText(
-            "Your statistics :",
-            style: Styles.normal20.copyWith(
-              color: Colors.white,
+    return (widget.user.played == 0)
+        ? Center(
+            child: AutoSizeText(
+              "No matches played yet, so no stats available.",
+              style: Styles.normal16.copyWith(
+                color: Colors.grey,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        SizedBox(
-          height: 280,
-          child: AspectRatio(
-            aspectRatio: 1.3,
-            child: Row(
-              children: <Widget>[
-                const SizedBox(
-                  height: 18,
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: AutoSizeText(
+                  "Your statistics :",
+                  style: Styles.normal20.copyWith(
+                    color: Colors.white,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                Expanded(
-                  child: AspectRatio(
-                    aspectRatio: 1,
-                    child: PieChart(
-                      PieChartData(
-                        pieTouchData: PieTouchData(
-                          touchCallback:
-                              (FlTouchEvent event, pieTouchResponse) {
-                            setState(() {
-                              if (!event.isInterestedForInteractions ||
-                                  pieTouchResponse == null ||
-                                  pieTouchResponse.touchedSection == null) {
-                                touchedIndex = -1;
-                                return;
-                              }
-                              touchedIndex = pieTouchResponse
-                                  .touchedSection!.touchedSectionIndex;
-                            });
-                          },
-                        ),
-                        borderData: FlBorderData(
-                          show: false,
-                        ),
-                        sectionsSpace: 0,
-                        centerSpaceRadius: 40,
-                        sections: showingSections(),
+              ),
+              SizedBox(
+                height: 280,
+                child: AspectRatio(
+                  aspectRatio: 1.3,
+                  child: Row(
+                    children: <Widget>[
+                      const SizedBox(
+                        height: 18,
                       ),
-                    ),
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: PieChart(
+                            PieChartData(
+                              pieTouchData: PieTouchData(
+                                touchCallback:
+                                    (FlTouchEvent event, pieTouchResponse) {
+                                  setState(() {
+                                    if (!event.isInterestedForInteractions ||
+                                        pieTouchResponse == null ||
+                                        pieTouchResponse.touchedSection ==
+                                            null) {
+                                      touchedIndex = -1;
+                                      return;
+                                    }
+                                    touchedIndex = pieTouchResponse
+                                        .touchedSection!.touchedSectionIndex;
+                                  });
+                                },
+                              ),
+                              borderData: FlBorderData(
+                                show: false,
+                              ),
+                              sectionsSpace: 0,
+                              centerSpaceRadius: 40,
+                              sections: showingSections(),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Indicator(
+                            color: Colors.green,
+                            text: 'Wins',
+                            isSquare: true,
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Indicator(
+                            color: Colors.grey,
+                            text: 'Draws',
+                            isSquare: true,
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Indicator(
+                            color: Colors.red,
+                            text: 'Losses',
+                            isSquare: true,
+                          ),
+                          SizedBox(
+                            height: 18,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 28,
+                      ),
+                    ],
                   ),
                 ),
-                const Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Indicator(
-                      color: Colors.green,
-                      text: 'Wins',
-                      isSquare: true,
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Indicator(
-                      color: Colors.grey,
-                      text: 'Draws',
-                      isSquare: true,
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Indicator(
-                      color: Colors.red,
-                      text: 'Losses',
-                      isSquare: true,
-                    ),
-                    SizedBox(
-                      height: 18,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  width: 28,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
+              ),
+            ],
+          );
   }
 
   List<PieChartSectionData> showingSections() {
@@ -119,8 +135,9 @@ class PieChart2State extends State {
         case 0:
           return PieChartSectionData(
             color: Colors.green,
-            value: 168,
-            title: '76%',
+            value: widget.user.wins.toDouble(),
+            title:
+                "${calculateMatchesPercentage(widget.user.played, widget.user.wins)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -132,8 +149,9 @@ class PieChart2State extends State {
         case 1:
           return PieChartSectionData(
             color: Colors.grey,
-            value: 30,
-            title: '16%',
+            value: widget.user.draws.toDouble(),
+            title:
+                "${calculateMatchesPercentage(widget.user.played, widget.user.draws)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -145,8 +163,9 @@ class PieChart2State extends State {
         case 2:
           return PieChartSectionData(
             color: Colors.red,
-            value: 22,
-            title: '7%',
+            value: widget.user.losses.toDouble(),
+            title:
+                "${calculateMatchesPercentage(widget.user.played, widget.user.losses)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,

@@ -1,14 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:pmf_website/core/models/user_model.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
 class ProfileInfo extends StatelessWidget {
   const ProfileInfo({
     super.key,
     required this.isMobile,
+    required this.user,
   });
 
   final bool isMobile;
+  final UserInformation user;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class ProfileInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AutoSizeText(
-            "AFYF BADREDDINE",
+            user.displayName,
             style: Styles.normal30.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -28,7 +32,7 @@ class ProfileInfo extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           AutoSizeText(
-            "Joined At: 19/08/2024 06:18",
+            "Joined At: ${DateFormat('yyyy-MM-dd kk:mm').format(user.joinedDate.toDate())}",
             style: Styles.normal14.copyWith(
               color: Colors.grey,
             ),
