@@ -49,7 +49,8 @@ class MobileDrawer extends StatelessWidget {
               text: 'PROFILE',
               icon: Icons.home,
               onTap: () {
-                AppRouter.navigateTo(context, AppRouter.profile);
+                AppRouter.navigateToWithUrlParametre(
+              context, AppRouter.profile, 'id', 'state.id');
               },
             ),
             DrawerItem(

@@ -5,6 +5,6 @@ import 'package:pmf_website/core/utils/failures.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, User>> signUp(UserInformation userInfo);
-  Future<Either<Failure, User>> signIn(String email, String password);
+  Future<Either<Failure, UserInformation>> signIn(String email, String password);
   Future<Either<Failure, bool>> forgotPass(String email);
 }

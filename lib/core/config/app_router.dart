@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
@@ -56,21 +55,19 @@ class AppRouter {
         ),
       ),
       GoRoute(
-          path: profile,
-          pageBuilder: (context, state) {
-            if (kIsWeb) {
-              // MetaSEO meta = MetaSEO();
-              // meta.ogTitle(ogTitle: 'Events Week');
-              // meta.description(description: 'Association Events Week');
-              // meta.keywords(
-              //     keywords: 'Evenements, Events Week, AEW, Rabat, Maroc');
-            }
-            return const NoTransitionPage(
-              child: MouseFollowerWidget(
-                child: ProfileView(),
+        name: profile,
+        path: '$profile/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: ProfileView(
+                id: id,
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
       GoRoute(
         path: leagues,
         pageBuilder: (context, state) => const NoTransitionPage(
@@ -158,7 +155,7 @@ class AppRouter {
   }
 
   static void navigateToWithUrlParametre(
-      BuildContext context, String name, String id, String value) {
-    context.goNamed(name, pathParameters: {id: value});
+      BuildContext context, String path, String name, String value) {
+    context.goNamed(path, pathParameters: {name: value});
   }
 }

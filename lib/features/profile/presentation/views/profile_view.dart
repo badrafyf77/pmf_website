@@ -5,7 +5,9 @@ import 'package:pmf_website/features/profile/presentation/views/desktop/body.dar
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+  const ProfileView({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {

@@ -98,7 +98,8 @@ class AppbarItems extends StatelessWidget {
             isSelected: isProfileSelected,
             text: 'PROFILE',
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.profile);
+              AppRouter.navigateToWithUrlParametre(
+              context, AppRouter.profile, 'id', 'state.id');
             },
           ),
           const SizedBox(width: 8),

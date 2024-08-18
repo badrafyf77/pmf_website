@@ -16,3 +16,9 @@ final class AuthFailure extends AuthState {
     required this.errorMessage,
   });
 }
+
+final class SignInSuccess extends AuthState {
+  final String id;
+
+  SignInSuccess({required this.id});
+}

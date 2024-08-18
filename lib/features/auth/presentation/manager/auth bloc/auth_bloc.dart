@@ -42,8 +42,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         var user = await _authRepo.signIn(event.email, event.password);
         user.fold((failure) {
           emit(AuthFailure(errorMessage: failure.errMessage));
-        }, (userCredential) {
-          emit(AuthSuccess());
+        }, (user) {
+          emit(SignInSuccess(id: user.id));
         });
       }
 

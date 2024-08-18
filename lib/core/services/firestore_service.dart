@@ -19,11 +19,21 @@ class FirestoreService {
     return user;
   }
 
+  Future<UserInformation> getUserByEmail(String email) async {
+    List<UserInformation> list = [];
+    await users.where('email', isEqualTo: email).get().then((user) {
+      for (var doc in user.docs) {
+        list.add(UserInformation.fromJson(doc));
+      }
+    });
+    return list[0];
+  }
+
   Future<void> deleteUser(String id) async {
     await users.doc(id).delete();
   }
 
-  Future<void> updatePassword(String id,String newPassword) async {
+  Future<void> updatePassword(String id, String newPassword) async {
     await users.doc(id).update({
       'password': newPassword,
     });
