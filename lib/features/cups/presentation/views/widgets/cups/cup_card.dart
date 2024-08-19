@@ -9,7 +9,9 @@ import 'package:pmf_website/core/utils/styles.dart';
 import 'package:pmf_website/features/cups/presentation/views/widgets/cups/cup_info.dart';
 
 class CupCard extends StatelessWidget {
-  const CupCard({super.key});
+  const CupCard({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,8 @@ class CupCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   CustomButton(
                     onPressed: () {
-                      AppRouter.navigateTo(context, AppRouter.cupTable);
+                      AppRouter.navigateToWithUrlParametre(
+                          context, AppRouter.cupTable, 'id', id);
                     },
                     textButton: "See more",
                     backgroundColor: AppColors.kPrimaryColor,

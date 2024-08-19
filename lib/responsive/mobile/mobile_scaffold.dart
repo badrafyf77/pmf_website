@@ -7,10 +7,12 @@ class MobileScaffold extends StatelessWidget {
     super.key,
     required this.body,
     required this.isHomeAppbar,
+    required this.id,
   });
 
   final Widget body;
   final bool isHomeAppbar;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class MobileScaffold extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: const MobileAppBar(),
         endDrawer:
-            isHomeAppbar ? const MobileHomeDrawer() : const MobileDrawer(),
+            isHomeAppbar ? const MobileHomeDrawer() : MobileDrawer(id: id),
         body: body,
       ),
     );

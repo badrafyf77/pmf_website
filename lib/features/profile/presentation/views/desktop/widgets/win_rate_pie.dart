@@ -20,14 +20,17 @@ class PieChart2State extends State<WinRatePie> {
   @override
   Widget build(BuildContext context) {
     return (widget.user.played == 0)
-        ? Center(
-            child: AutoSizeText(
-              "No matches played yet, so no stats available.",
-              style: Styles.normal16.copyWith(
-                color: Colors.grey,
+        ? SizedBox(
+            height: 280,
+            child: Center(
+              child: AutoSizeText(
+                "No matches played yet, so no stats available.",
+                style: Styles.normal16.copyWith(
+                  color: Colors.grey,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
             ),
           )
         : Column(

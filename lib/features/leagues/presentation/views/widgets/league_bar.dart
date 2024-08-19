@@ -8,8 +8,10 @@ class LeagueBar extends StatelessWidget {
     super.key,
     this.isTableSelected = false,
     this.isMatchesSelected = false,
+    required this.id,
   });
 
+  final String id;
   final bool isTableSelected;
   final bool isMatchesSelected;
 
@@ -21,6 +23,7 @@ class LeagueBar extends StatelessWidget {
         const ViewsTitle(title: "PMF SERIE 1"),
         const SizedBox(height: 15),
         LeagueBarItems(
+          id: id,
           isTableSelected: isTableSelected,
           isMatchesSelected: isMatchesSelected,
         ),

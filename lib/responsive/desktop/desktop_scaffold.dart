@@ -10,9 +10,10 @@ class DesktopScaffold extends StatelessWidget {
     required this.isTrophiesSelected,
     required this.isProfileSelected,
     required this.isLeaguesSelected,
-    required this.isCupsSelected,
+    required this.isCupsSelected, required this.id,
   });
 
+  final String id;
   final bool isHomeAppbar;
   final bool isHomeSelected;
   final bool isTrophiesSelected;
@@ -28,6 +29,7 @@ class DesktopScaffold extends StatelessWidget {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: DesktopAppBar(
+          id: id,
           isHomeAppbar: isHomeAppbar,
           isHomeSelected: isHomeSelected,
           isTrophiesSelected: isTrophiesSelected,

@@ -8,8 +8,10 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 
 class LeagueTableBody extends StatelessWidget {
   const LeagueTableBody({
-    super.key,
+    super.key, required this.id,
   });
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,8 @@ class LeagueTableBody extends StatelessWidget {
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const LeagueBar(
+            LeagueBar(
+              id: id,
               isTableSelected: true,
             ),
             StandingTable(

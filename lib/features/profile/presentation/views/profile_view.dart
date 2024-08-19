@@ -23,11 +23,12 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return const GeneralScaffold(
+    return GeneralScaffold(
+      id: widget.id,
       isProfileSelected: true,
-      desktopBody: DesktopProfileBody(),
-      tabletBody: DesktopProfileBody(),
-      mobileBody: MobileProfileBody(),
+      desktopBody: const DesktopProfileBody(),
+      tabletBody: const DesktopProfileBody(),
+      mobileBody: const MobileProfileBody(),
     );
   }
 }

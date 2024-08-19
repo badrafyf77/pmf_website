@@ -9,9 +9,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.isTrophiesSelected,
     required this.isProfileSelected,
     required this.isLeaguesSelected,
-    required this.isCupsSelected,
+    required this.isCupsSelected, required this.id,
   });
 
+  final String id;
   final bool isHomeAppbar;
   final bool isHomeSelected;
   final bool isTrophiesSelected;
@@ -26,6 +27,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: AppbarContent(
+        id: id,
         isHomeAppbar: isHomeAppbar,
         isHomeSelected: isHomeSelected,
         isTrophiesSelected: isTrophiesSelected,

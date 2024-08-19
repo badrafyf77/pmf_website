@@ -5,7 +5,9 @@ import 'package:pmf_website/core/utils/customs/custom_listview_animation_config.
 import 'package:pmf_website/features/cups/presentation/views/widgets/cups/cup_card.dart';
 
 class CupsBody extends StatelessWidget {
-  const CupsBody({super.key});
+  const CupsBody({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class CupsBody extends StatelessWidget {
               index: index,
               child: Column(
                 children: [
-                  const CupCard(),
+                  CupCard(id: id),
                   if (index == 3)
                     const Column(
                       children: [

@@ -6,21 +6,24 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20table
 import 'package:pmf_website/features/cups/presentation/views/widgets/cups_bar.dart';
 
 class CupTableBody extends StatelessWidget {
-  const CupTableBody({super.key});
+  const CupTableBody({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView(
+    return CustomListView(
       children: [
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CupBar(
+              id: id,
               isTableSelected: true,
             ),
-            GroupsList(),
-            SizedBox(height: 20),
-            AppFooter(),
+            const GroupsList(),
+            const SizedBox(height: 20),
+            const AppFooter(),
           ],
         ),
       ],

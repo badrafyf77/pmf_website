@@ -6,7 +6,9 @@ import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
 class LeagueInfoMobile extends StatelessWidget {
-  const LeagueInfoMobile({super.key});
+  const LeagueInfoMobile({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,8 @@ class LeagueInfoMobile extends StatelessWidget {
         const SizedBox(height: 15),
         CustomButton(
           onPressed: () {
-            AppRouter.navigateTo(context, AppRouter.leagueTable);
+            AppRouter.navigateToWithUrlParametre(
+                  context, AppRouter.leagueTable, 'id', id);
           },
           textButton: "See more",
           backgroundColor: AppColors.kPrimaryColor,

@@ -3,17 +3,18 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20group
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class CupGroupsMatchesView extends StatelessWidget {
-  const CupGroupsMatchesView({super.key});
+  const CupGroupsMatchesView({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
-    return const GeneralScaffold(
+    return GeneralScaffold(
+      id: id,
       isCupsSelected: true,
-      desktopBody: CupGroupsMatchesBody(),
-      tabletBody: CupGroupsMatchesBody(),
-      mobileBody: CupGroupsMatchesBody(),
+      desktopBody: CupGroupsMatchesBody(id: id),
+      tabletBody: CupGroupsMatchesBody(id: id),
+      mobileBody: CupGroupsMatchesBody(id: id),
     );
   }
 }
-
-

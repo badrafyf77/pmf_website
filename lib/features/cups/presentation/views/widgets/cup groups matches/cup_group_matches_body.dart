@@ -6,21 +6,24 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20group
 import 'package:pmf_website/features/cups/presentation/views/widgets/cups_bar.dart';
 
 class CupGroupsMatchesBody extends StatelessWidget {
-  const CupGroupsMatchesBody({super.key});
+  const CupGroupsMatchesBody({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView(
+    return CustomListView(
       children: [
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CupBar(
+              id: id,
               isGroupsMatchesSelected: true,
             ),
-            CupGroupMatches(),
-            SizedBox(height: 30),
-            AppFooter(),
+            const CupGroupMatches(),
+            const SizedBox(height: 30),
+            const AppFooter(),
           ],
         ),
       ],

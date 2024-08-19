@@ -6,9 +6,10 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_card_mobile.dart';
 
 class LeaguesBody extends StatelessWidget {
-  const LeaguesBody({super.key, this.isMobile = false});
+  const LeaguesBody({super.key, this.isMobile = false, required this.id});
 
   final bool isMobile;
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class LeaguesBody extends StatelessWidget {
               index: index,
               child: Column(
                 children: [
-                  isMobile ? const LeagueCardMobile() : const LeagueCard(),
+                  isMobile ? LeagueCardMobile(id: id) : LeagueCard(id: id),
                   if (index == 3)
                     const Column(
                       children: [

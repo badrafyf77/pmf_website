@@ -7,22 +7,25 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 
 class LeagueMatchesBody extends StatelessWidget {
   const LeagueMatchesBody({
-    super.key,
+    super.key, required this.id,
   });
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView(
+    return CustomListView(
       children: [
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LeagueBar(
+              id: id,
               isMatchesSelected: true,
             ),
-            LeagueMatches(),
-            SizedBox(height: 30),
-            AppFooter(),
+            const LeagueMatches(),
+            const SizedBox(height: 30),
+            const AppFooter(),
           ],
         ),
       ],

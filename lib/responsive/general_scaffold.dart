@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/responsive/desktop/desktop_scaffold.dart';
 import 'package:pmf_website/responsive/mobile/mobile_scaffold.dart';
-import 'package:pmf_website/responsive/tablet/tablet_scaffold.dart';
 
 class GeneralScaffold extends StatelessWidget {
   const GeneralScaffold({
     super.key,
+    this.id = '',
     this.isHomeAppbar = false,
     this.isHomeSelected = false,
     this.isTrophiesSelected = false,
@@ -17,6 +17,7 @@ class GeneralScaffold extends StatelessWidget {
     required this.mobileBody,
   });
 
+  final String id;
   final bool isHomeAppbar;
   final bool isHomeSelected;
   final bool isTrophiesSelected;
@@ -32,6 +33,7 @@ class GeneralScaffold extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth > 920) {
         return DesktopScaffold(
+          id: id,
           isHomeAppbar: isHomeAppbar,
           isHomeSelected: isHomeSelected,
           isTrophiesSelected: isTrophiesSelected,
@@ -42,12 +44,14 @@ class GeneralScaffold extends StatelessWidget {
         );
       }
       if (constraints.maxWidth > 640) {
-        return TabletScaffold(
+        return MobileScaffold(
+          id: id,
           body: tabletBody,
           isHomeAppbar: isHomeAppbar,
         );
       }
       return MobileScaffold(
+        id: id,
         body: mobileBody,
         isHomeAppbar: isHomeAppbar,
       );

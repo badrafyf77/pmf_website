@@ -69,52 +69,102 @@ class AppRouter {
         },
       ),
       GoRoute(
-        path: leagues,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: LeaguesView(),
-          ),
-        ),
+        name: leagues,
+        path: '$leagues/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: LeaguesView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: leagueTable,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: LeagueTableView(),
-          ),
-        ),
+        name: leagueTable,
+        path: '$leagueTable/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: LeagueTableView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: leagueMatches,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: LeagueMatchesView(),
-          ),
-        ),
+        name: leagueMatches,
+        path: '$leagueMatches/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: LeagueMatchesView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: cups,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: CupsView(),
-          ),
-        ),
+        name: cups,
+        path: '$cups/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: CupsView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: cupTable,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: CupTableView(),
-          ),
-        ),
+        name: cupTable,
+        path: '$cupTable/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: CupTableView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
-        path: cupGroupsMatches,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: CupGroupsMatchesView(),
-          ),
-        ),
+        name: cupGroupsMatches,
+        path: '$cupGroupsMatches/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: CupGroupsMatchesView(
+                id: id,
+              ),
+            ),
+          );
+        },
+      ),
+      GoRoute(
+        name: cupKnockoutStage,
+        path: '$cupKnockoutStage/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: CupKnockoutView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
       GoRoute(
         path: trophies,
@@ -124,28 +174,6 @@ class AppRouter {
           ),
         ),
       ),
-      GoRoute(
-        path: cupKnockoutStage,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: CupKnockoutView(),
-          ),
-        ),
-      ),
-      // GoRoute(
-      //   name: eventInfo,
-      //   path: '$eventInfo/:id',
-      //   pageBuilder: (context, state) {
-      //     final id = state.pathParameters['id']!;
-      //     return NoTransitionPage(
-      //       child: MouseFollowerWidget(
-      //         child: EventInfoView(
-      //           id: id,
-      //         ),
-      //       ),
-      //     );
-      //   },
-      // ),
     ],
   );
   static void navigateTo(BuildContext context, String path) {

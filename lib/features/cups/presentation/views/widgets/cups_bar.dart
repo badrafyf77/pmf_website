@@ -8,8 +8,10 @@ class CupBar extends StatelessWidget {
     this.isTableSelected = false,
     this.isGroupsMatchesSelected = false,
     this.isKnockoutSelected = false,
+    required this.id,
   });
 
+  final String id;
   final bool isTableSelected;
   final bool isGroupsMatchesSelected;
   final bool isKnockoutSelected;
@@ -22,6 +24,7 @@ class CupBar extends StatelessWidget {
         const ViewsTitle(title: "PMF World Cup"),
         const SizedBox(height: 15),
         CupBarItems(
+          id: id,
           isTableSelected: isTableSelected,
           isGroupsMatchesSelected: isGroupsMatchesSelected,
           isKnockoutSelected: isKnockoutSelected,

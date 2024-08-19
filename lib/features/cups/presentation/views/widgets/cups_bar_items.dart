@@ -10,8 +10,10 @@ class CupBarItems extends StatelessWidget {
     required this.isTableSelected,
     required this.isGroupsMatchesSelected,
     required this.isKnockoutSelected,
+    required this.id,
   });
 
+  final String id;
   final bool isTableSelected;
   final bool isGroupsMatchesSelected;
   final bool isKnockoutSelected;
@@ -34,7 +36,8 @@ class CupBarItems extends StatelessWidget {
                     value: "TABLE",
                     lineWidth: 45,
                     onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.cupTable);
+                      AppRouter.navigateToWithUrlParametre(
+                          context, AppRouter.cupTable, 'id', id);
                     },
                     isSelected: isTableSelected,
                   ),
@@ -43,7 +46,8 @@ class CupBarItems extends StatelessWidget {
                     value: "GROUPS MATCHES",
                     lineWidth: 137,
                     onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.cupGroupsMatches);
+                      AppRouter.navigateToWithUrlParametre(
+                          context, AppRouter.cupGroupsMatches, 'id', id);
                     },
                     isSelected: isGroupsMatchesSelected,
                   ),
@@ -52,7 +56,8 @@ class CupBarItems extends StatelessWidget {
                     value: "KNOCKOUT STAGE",
                     lineWidth: 137,
                     onTap: () {
-                      AppRouter.navigateTo(context, AppRouter.cupKnockoutStage);
+                      AppRouter.navigateToWithUrlParametre(
+                          context, AppRouter.cupKnockoutStage, 'id', id);
                     },
                     isSelected: isKnockoutSelected,
                   ),

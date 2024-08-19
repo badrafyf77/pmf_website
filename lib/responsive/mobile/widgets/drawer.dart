@@ -8,7 +8,9 @@ import 'package:pmf_website/responsive/desktop/widgets/appbar_content.dart';
 import 'package:pmf_website/responsive/mobile/widgets/drawer_item.dart';
 
 class MobileDrawer extends StatelessWidget {
-  const MobileDrawer({super.key});
+  const MobileDrawer({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +52,23 @@ class MobileDrawer extends StatelessWidget {
               icon: Icons.home,
               onTap: () {
                 AppRouter.navigateToWithUrlParametre(
-              context, AppRouter.profile, 'id', 'state.id');
+                    context, AppRouter.profile, 'id', id);
               },
             ),
             DrawerItem(
               text: 'LEAGUES',
               icon: Icons.info,
               onTap: () {
-                AppRouter.navigateTo(context, AppRouter.leagues);
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.leagues, 'id', id);
               },
             ),
             DrawerItem(
               text: 'CUPS',
               icon: Icons.event,
               onTap: () {
-                AppRouter.navigateTo(context, AppRouter.cups);
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.cups, 'id', id);
               },
             ),
             const SizedBox(

@@ -5,7 +5,9 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_prizes_mobile.dart';
 
 class LeagueCardMobile extends StatelessWidget {
-  const LeagueCardMobile({super.key});
+  const LeagueCardMobile({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,9 @@ class LeagueCardMobile extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const LeagueInfoMobile(),
+                    LeagueInfoMobile(
+                      id: id,
+                    ),
                   ],
                 ),
                 const SizedBox(width: 15),

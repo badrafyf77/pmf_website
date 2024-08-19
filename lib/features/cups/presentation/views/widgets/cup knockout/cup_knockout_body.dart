@@ -6,21 +6,24 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20knock
 import 'package:pmf_website/features/cups/presentation/views/widgets/cups_bar.dart';
 
 class CupKnockoutBody extends StatelessWidget {
-  const CupKnockoutBody({super.key});
+  const CupKnockoutBody({super.key, required this.id});
+
+  final String id;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView(
+    return CustomListView(
       children: [
         ColumnFadeInAnimation(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CupBar(
+              id: id,
               isKnockoutSelected: true,
             ),
-            CupKnockoutMatches(),
-            SizedBox(height: 30),
-            AppFooter(),
+            const CupKnockoutMatches(),
+            const SizedBox(height: 30),
+            const AppFooter(),
           ],
         ),
       ],

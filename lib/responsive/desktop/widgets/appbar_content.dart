@@ -14,8 +14,10 @@ class AppbarContent extends StatelessWidget {
     required this.isProfileSelected,
     required this.isLeaguesSelected,
     required this.isCupsSelected,
+    required this.id,
   });
 
+  final String id;
   final bool isHomeAppbar;
   final bool isHomeSelected;
   final bool isTrophiesSelected;
@@ -34,6 +36,7 @@ class AppbarContent extends StatelessWidget {
                 isHomeSelected: isHomeSelected,
                 isTrophiesSelected: isTrophiesSelected)
             : AppbarItems(
+                id: id,
                 isProfileSelected: isProfileSelected,
                 isLeaguesSelected: isLeaguesSelected,
                 isCupsSelected: isCupsSelected,
@@ -78,8 +81,10 @@ class AppbarItems extends StatelessWidget {
     required this.isProfileSelected,
     required this.isLeaguesSelected,
     required this.isCupsSelected,
+    required this.id,
   });
 
+  final String id;
   final bool isProfileSelected;
   final bool isLeaguesSelected;
   final bool isCupsSelected;
@@ -99,7 +104,7 @@ class AppbarItems extends StatelessWidget {
             text: 'PROFILE',
             onPressed: () {
               AppRouter.navigateToWithUrlParametre(
-              context, AppRouter.profile, 'id', 'state.id');
+                  context, AppRouter.profile, 'id', id);
             },
           ),
           const SizedBox(width: 8),
@@ -107,7 +112,8 @@ class AppbarItems extends StatelessWidget {
             isSelected: isLeaguesSelected,
             text: 'LEAGUES',
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.leagues);
+              AppRouter.navigateToWithUrlParametre(
+                  context, AppRouter.leagues, 'id', id);
             },
           ),
           const SizedBox(width: 8),
@@ -115,7 +121,8 @@ class AppbarItems extends StatelessWidget {
             isSelected: isCupsSelected,
             text: 'CUPS',
             onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.cups);
+              AppRouter.navigateToWithUrlParametre(
+                  context, AppRouter.cups, 'id', id);
             },
           ),
         ],
