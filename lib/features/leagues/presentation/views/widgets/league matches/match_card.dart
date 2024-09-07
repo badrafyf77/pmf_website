@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/league%20matches/matches_item.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/league%20matches/card_item.dart';
 
 class MatchCard extends StatelessWidget {
   const MatchCard({super.key});
@@ -19,12 +19,12 @@ class MatchCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MatchItem(
+                CardItem(
                   playerName: "Afyf Badreddine",
                   goals: 3,
                   isWinner: true,
                 ),
-                MatchItem(
+                CardItem(
                   playerName: "Younesse Lamtti",
                   goals: 0,
                   isWinner: false,

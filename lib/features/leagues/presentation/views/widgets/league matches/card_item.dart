@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
-class MatchItem extends StatelessWidget {
-  const MatchItem({
+class CardItem extends StatelessWidget {
+  const CardItem({
     super.key,
     required this.playerName,
     required this.goals,

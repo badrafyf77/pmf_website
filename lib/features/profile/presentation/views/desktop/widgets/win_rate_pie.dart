@@ -140,7 +140,7 @@ class PieChart2State extends State<WinRatePie> {
             color: Colors.green,
             value: widget.user.wins.toDouble(),
             title:
-                "${calculateMatchesPercentage(widget.user.played, widget.user.wins)}%",
+                "${calculateMatchesPercentage(widget.user.played, widget.user.wins).toStringAsFixed(2)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -154,7 +154,7 @@ class PieChart2State extends State<WinRatePie> {
             color: Colors.grey,
             value: widget.user.draws.toDouble(),
             title:
-                "${calculateMatchesPercentage(widget.user.played, widget.user.draws)}%",
+                "${calculateMatchesPercentage(widget.user.played, widget.user.draws).toStringAsFixed(2)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -168,7 +168,7 @@ class PieChart2State extends State<WinRatePie> {
             color: Colors.red,
             value: widget.user.losses.toDouble(),
             title:
-                "${calculateMatchesPercentage(widget.user.played, widget.user.losses)}%",
+                "${calculateMatchesPercentage(widget.user.played, widget.user.losses).toStringAsFixed(2)}%",
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,

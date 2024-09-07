@@ -75,7 +75,10 @@ class MobileDrawer extends StatelessWidget {
               height: 15,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.settings, 'id', id);
+              },
               icon: const Icon(
                 Icons.person,
                 color: AppColors.kPrimaryColor,

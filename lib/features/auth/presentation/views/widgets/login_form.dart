@@ -28,6 +28,13 @@ class _LoginFormState extends State<LoginForm> {
   bool loading = false;
 
   @override
+  void dispose() {
+    emailController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {

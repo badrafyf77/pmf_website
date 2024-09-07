@@ -44,7 +44,10 @@ class AppbarContent extends StatelessWidget {
         isHomeAppbar
             ? const SignInButton()
             : IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateToWithUrlParametre(
+                      context, AppRouter.settings, 'id', id);
+                },
                 icon: const Icon(
                   Icons.person,
                   color: AppColors.kPrimaryColor,
@@ -97,35 +100,38 @@ class AppbarItems extends StatelessWidget {
         color: Colors.black,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      child: Row(
-        children: [
-          AppBarItem(
-            isSelected: isProfileSelected,
-            text: 'PROFILE',
-            onPressed: () {
-              AppRouter.navigateToWithUrlParametre(
-                  context, AppRouter.profile, 'id', id);
-            },
-          ),
-          const SizedBox(width: 8),
-          AppBarItem(
-            isSelected: isLeaguesSelected,
-            text: 'LEAGUES',
-            onPressed: () {
-              AppRouter.navigateToWithUrlParametre(
-                  context, AppRouter.leagues, 'id', id);
-            },
-          ),
-          const SizedBox(width: 8),
-          AppBarItem(
-            isSelected: isCupsSelected,
-            text: 'CUPS',
-            onPressed: () {
-              AppRouter.navigateToWithUrlParametre(
-                  context, AppRouter.cups, 'id', id);
-            },
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: [
+            AppBarItem(
+              isSelected: isProfileSelected,
+              text: 'PROFILE',
+              onPressed: () {
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.profile, 'id', id);
+              },
+            ),
+            const SizedBox(width: 8),
+            AppBarItem(
+              isSelected: isLeaguesSelected,
+              text: 'LEAGUES',
+              onPressed: () {
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.leagues, 'id', id);
+              },
+            ),
+            const SizedBox(width: 8),
+            AppBarItem(
+              isSelected: isCupsSelected,
+              text: 'CUPS',
+              onPressed: () {
+                AppRouter.navigateToWithUrlParametre(
+                    context, AppRouter.cups, 'id', id);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

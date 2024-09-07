@@ -13,6 +13,7 @@ import 'package:pmf_website/features/leagues/presentation/views/league_table_vie
 import 'package:pmf_website/features/leagues/presentation/views/leagues_view.dart';
 import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
 import 'package:pmf_website/features/home/presentation/views/trophies_view.dart';
+import 'package:pmf_website/features/settings/presentation/views/settings_view.dart';
 
 class AppRouter {
   static const home = '/';
@@ -27,6 +28,7 @@ class AppRouter {
   static const cupTable = '/cup-table';
   static const cupGroupsMatches = '/cup-groups-matches';
   static const cupKnockoutStage = '/cup-knockout-stage';
+  static const settings = '/settings';
 
   static final router = GoRouter(
     routes: [
@@ -173,6 +175,20 @@ class AppRouter {
             child: TrophiesView(),
           ),
         ),
+      ),
+      GoRoute(
+        name: settings,
+        path: '$settings/:id',
+        pageBuilder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return NoTransitionPage(
+            child: MouseFollowerWidget(
+              child: SettingsView(
+                id: id,
+              ),
+            ),
+          );
+        },
       ),
     ],
   );

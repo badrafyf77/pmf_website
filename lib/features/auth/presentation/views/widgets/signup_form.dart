@@ -29,6 +29,15 @@ class _SignUpFormState extends State<SignUpForm> {
   bool loading = false;
 
   @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passController.dispose();
+    confirmationPassController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
