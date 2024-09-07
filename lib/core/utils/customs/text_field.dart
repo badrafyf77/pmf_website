@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
-class MyTextField extends StatefulWidget {
-  const MyTextField({
+class CustomTextField extends StatefulWidget {
+  const CustomTextField({
     super.key,
     this.obscureText = false,
     this.isTextArea = false,
@@ -18,17 +18,17 @@ class MyTextField extends StatefulWidget {
   final bool isTextArea;
   final bool obscureText;
   final TextEditingController controller;
-  final String? Function(String?)? validator;
+  final String? Function(String?) validator;
   final String hintText;
   final double? width;
   final double radius;
   final Widget? prefixIcon;
 
   @override
-  State<MyTextField> createState() => _MyTextFieldState();
+  State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
-class _MyTextFieldState extends State<MyTextField> {
+class _CustomTextFieldState extends State<CustomTextField> {
   bool showPass = false;
   @override
   void initState() {
@@ -73,7 +73,7 @@ class _MyTextFieldState extends State<MyTextField> {
               : null,
           suffixIconColor: AppColors.kPrimaryColor,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(widget.radius)),
             borderSide: BorderSide.none,

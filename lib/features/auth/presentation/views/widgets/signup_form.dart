@@ -65,7 +65,7 @@ class _SignUpFormState extends State<SignUpForm> {
               key: formKey,
               child: Column(
                 children: [
-                  MyTextField(
+                  CustomTextField(
                     controller: nameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -77,7 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     prefixIcon: const Icon(Icons.person),
                   ),
                   const SizedBox(height: 16.0),
-                  MyTextField(
+                  CustomTextField(
                     controller: emailController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -91,7 +91,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     prefixIcon: const Icon(Icons.mail),
                   ),
                   const SizedBox(height: 16.0),
-                  MyTextField(
+                  CustomTextField(
                     obscureText: true,
                     controller: passController,
                     validator: (value) {
@@ -106,7 +106,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     prefixIcon: const Icon(Icons.lock),
                   ),
                   const SizedBox(height: 16.0),
-                  MyTextField(
+                  CustomTextField(
                     obscureText: true,
                     controller: confirmationPassController,
                     validator: (value) {

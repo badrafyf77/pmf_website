@@ -63,7 +63,7 @@ class _LoginFormState extends State<LoginForm> {
               key: formKey,
               child: Column(
                 children: [
-                  MyTextField(
+                  CustomTextField(
                     controller: emailController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -78,7 +78,7 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: MyTextField(
+                    child: CustomTextField(
                       obscureText: true,
                       controller: passController,
                       validator: (value) {
