@@ -5,6 +5,7 @@ import 'package:pmf_website/core/services/auth_service.dart';
 import 'package:pmf_website/core/services/firestore_service.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dart';
 import 'package:pmf_website/features/profile/data/repo/profile_repo_implementation.dart';
+import 'package:pmf_website/features/settings/data/repo/settings_repo_implementation.dart';
 
 final getIt = GetIt.instance;
 
@@ -38,6 +39,13 @@ void setupServiceLocator() {
   );
   getIt.registerSingleton<ProfileRepoImplementation>(
     ProfileRepoImplementation(
+      getIt.get<FirestoreService>(),
+    ),
+  );
+
+  getIt.registerSingleton<SettingsRepoImplementation>(
+    SettingsRepoImplementation(
+      getIt.get<AuthService>(),
       getIt.get<FirestoreService>(),
     ),
   );

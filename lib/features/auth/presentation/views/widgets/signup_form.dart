@@ -60,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
         }
       },
       child: loading
-          ? const Center(child: LoadingCircle())
+          ? const Center(child: CustomLoadingIndicator())
           : Form(
               key: formKey,
               child: Column(
@@ -70,6 +70,10 @@ class _SignUpFormState extends State<SignUpForm> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return "Field required";
+                      } else if (!containsNumbers(value)) {
+                        return "The name cannot contain numbers";
+                      } else if (value.length > 50) {
+                        return "The name is too long";
                       }
                       return null;
                     },

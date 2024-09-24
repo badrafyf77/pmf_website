@@ -13,12 +13,14 @@ class CustomTextField extends StatefulWidget {
     this.width,
     this.radius = 32,
     this.prefixIcon,
+    this.onChanged,
   });
 
   final bool isTextArea;
   final bool obscureText;
   final TextEditingController controller;
   final String? Function(String?) validator;
+  final Function(String)? onChanged;
   final String hintText;
   final double? width;
   final double radius;
@@ -46,6 +48,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         controller: widget.controller,
         validator: widget.validator,
         style: Styles.normal16,
+        onChanged: widget.onChanged,
         cursorColor: Colors.white,
         decoration: InputDecoration(
           hintText: widget.hintText,

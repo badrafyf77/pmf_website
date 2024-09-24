@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mouse_follower/mouse_follower.dart';
 import 'package:pmf_website/core/config/app_router.dart';
-import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/responsive/desktop/widgets/appbar_content.dart';
@@ -81,7 +80,7 @@ class MobileDrawer extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.person,
-                color: AppColors.kPrimaryColor,
+                color: Colors.black,
                 size: 35,
               ),
             ),

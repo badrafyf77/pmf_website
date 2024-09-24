@@ -7,7 +7,7 @@ bool isEmailValid(String email) {
 bool containsNumbers(String s) {
   RegExp regex = RegExp(r'\d');
 
-  return regex.hasMatch(s);
+  return !regex.hasMatch(s);
 }
 
 bool isNumeric(String s) {

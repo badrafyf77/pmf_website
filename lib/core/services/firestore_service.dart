@@ -29,8 +29,16 @@ class FirestoreService {
     return list[0];
   }
 
-  Future<void> deleteUser(String id) async {
-    await users.doc(id).delete();
+  Future<void> updateName(String id, String newName) async {
+    await users.doc(id).update({
+      'displayName': newName,
+    });
+  }
+
+  Future<void> updateEmail(String id, String newEmail) async {
+    await users.doc(id).update({
+      'email': newEmail,
+    });
   }
 
   Future<void> updatePassword(String id, String newPassword) async {

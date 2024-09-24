@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
+import 'package:pmf_website/core/utils/service_locator.dart';
 import 'package:pmf_website/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pmf_website/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_groups_matches_view.dart';
@@ -13,6 +15,8 @@ import 'package:pmf_website/features/leagues/presentation/views/league_table_vie
 import 'package:pmf_website/features/leagues/presentation/views/leagues_view.dart';
 import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
 import 'package:pmf_website/features/home/presentation/views/trophies_view.dart';
+import 'package:pmf_website/features/settings/data/repo/settings_repo_implementation.dart';
+import 'package:pmf_website/features/settings/presentation/manager/cubit/settings_cubit.dart';
 import 'package:pmf_website/features/settings/presentation/views/settings_view.dart';
 
 class AppRouter {
@@ -183,8 +187,13 @@ class AppRouter {
           final id = state.pathParameters['id']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
-              child: SettingsView(
-                id: id,
+              child: BlocProvider(
+                create: (context) => SettingsCubit(
+                  getIt.get<SettingsRepoImplementation>(),
+                )..getUser(id),
+                child: SettingsView(
+                  id: id,
+                ),
               ),
             ),
           );

@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
         }
       },
       child: loading
-          ? const Center(child: LoadingCircle())
+          ? const Center(child: CustomLoadingIndicator())
           : Form(
               key: formKey,
               child: Column(

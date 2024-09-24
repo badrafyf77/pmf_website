@@ -7,10 +7,12 @@ class CustomTextButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onpressed,
+    this.fontColor,
   });
 
   final String text;
   final void Function()? onpressed;
+  final Color? fontColor;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class CustomTextButton extends StatelessWidget {
       onPressed: onpressed,
       child: Text(
         text,
-        style: Styles.normal14.copyWith(color: AppColors.kPrimaryColor),
+        style: Styles.normal14.copyWith(color: fontColor),
       ),
     );
   }
