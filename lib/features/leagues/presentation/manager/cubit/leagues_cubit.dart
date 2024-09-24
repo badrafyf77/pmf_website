@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pmf_website/core/models/fixture_model.dart';
 import 'package:pmf_website/core/models/player_model.dart';
+import 'package:pmf_website/core/services/firestore_service.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 import 'package:pmf_website/features/leagues/data/repo/league_repo.dart';
 
@@ -31,9 +32,15 @@ class LeaguesCubit extends Cubit<LeaguesState> {
     });
   }
 
-  Future<void> getMatches(League league, int round) async {
+  Future<void> getMatches(String leagueId, {int? round}) async {
     emit(Leagueslaoding());
-    var result = await _leaguesRepo.getMatches(league, round);
+    dynamic result;
+      if (round == null) {
+        League league = await FirestoreService().getLeague(leagueId);
+        result = await _leaguesRepo.getMatches(leagueId, league.currentRound);
+      }else{
+        result = await _leaguesRepo.getMatches(leagueId, round);
+      }
     result.fold((left) {
       emit(LeaguesFailure(err: left.errMessage));
     }, (right) {

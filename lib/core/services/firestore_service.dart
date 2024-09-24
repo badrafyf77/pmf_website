@@ -63,11 +63,11 @@ class FirestoreService {
     return leaguesList;
   }
 
-  Future<List<Fixture>> getMatches(League league, int round) async {
+  Future<List<Fixture>> getMatches(String leagueId, int round) async {
     List<Fixture> fixtures = [];
 
     var snapshot =
-        await leagues.doc(league.id).collection('round-$round').get();
+        await leagues.doc(leagueId).collection('round-$round').get();
 
     for (var doc in snapshot.docs) {
       fixtures.add(Fixture.fromJson(doc.data()));

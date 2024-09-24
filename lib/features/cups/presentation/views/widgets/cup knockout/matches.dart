@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:pmf_website/core/models/fixture_model.dart';
 import 'package:pmf_website/core/utils/customs/custom_gridview_animation_config.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/league%20matches/match_card.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/league%20matches/weeks_row.dart';
 
 class CupKnockoutMatches extends StatelessWidget {
   const CupKnockoutMatches({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Fixture fakeFixture = Fixture(
+      id: "id",
+      round: 1,
+      homeId: "",
+      homeName: "homeName",
+      homeGoals: 3,
+      awayId: "awayId",
+      awayName: "awayName",
+      awayGoals: 2,
+      isPlayed: false,
+    );
     return Column(
       children: [
-        const WeeksRow(),
         const SizedBox(height: 10),
         GridView.builder(
           physics: const ScrollPhysics(),
@@ -29,7 +39,9 @@ class CupKnockoutMatches extends StatelessWidget {
             return CustomGridviewAnimationConfig(
               index: index,
               columnCount: 10,
-              child: const MatchCard(),
+              child: MatchCard(
+                fixture: fakeFixture,
+              ),
             );
           },
         ),

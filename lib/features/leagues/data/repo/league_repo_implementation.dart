@@ -40,10 +40,10 @@ class LeaguesRepoImplementation implements LeaguesRepo {
 
   @override
   Future<Either<Failure, List<Fixture>>> getMatches(
-      League league, int round) async {
+      String leagueId, int round) async {
     try {
       List<Fixture> fixtures =
-          await _firestoreService.getMatches(league, round);
+          await _firestoreService.getMatches(leagueId, round);
       return right(fixtures);
     } catch (e) {
       if (e is FirebaseException) {
