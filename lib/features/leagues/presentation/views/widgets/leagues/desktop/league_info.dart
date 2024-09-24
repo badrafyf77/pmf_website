@@ -1,14 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:pmf_website/core/config/app_router.dart';
 import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/styles.dart';
+import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
 class LeagueInfo extends StatelessWidget {
-  const LeagueInfo({super.key, required this.id});
+  const LeagueInfo({super.key, required this.id, required this.league});
 
   final String id;
+  final League league;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +19,13 @@ class LeagueInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AutoSizeText(
-          "SERIE 1",
+          league.title,
           style: Styles.normal30.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
         AutoSizeText(
-          "20 players",
+          "${league.totalPlayers} players",
           style: Styles.normal16.copyWith(
             color: Colors.grey,
           ),
@@ -36,7 +39,7 @@ class LeagueInfo extends StatelessWidget {
             ),
             const SizedBox(width: 6),
             AutoSizeText(
-              "01/09/2024",
+              DateFormat('yyyy-MM-dd kk:mm').format(league.startDate.toDate()),
               style: Styles.normal16.copyWith(
                 color: Colors.grey,
               ),
@@ -47,7 +50,7 @@ class LeagueInfo extends StatelessWidget {
         CustomButton(
           onPressed: () {
             AppRouter.navigateToWithUrlParametre(
-                  context, AppRouter.leagueTable, 'id', id);
+                context, AppRouter.leagueTable, 'id', id);
           },
           textButton: "See more",
           backgroundColor: AppColors.kPrimaryColor,

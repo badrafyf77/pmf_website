@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
+import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_info.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_prizes.dart';
 
 class LeagueCard extends StatelessWidget {
-  const LeagueCard({super.key, required this.id});
+  const LeagueCard({super.key, required this.id, required this.league});
 
   final String id;
+  final League league;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class LeagueCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 28),
                     LeagueInfo(
+                      league: league,
                       id: id,
                     ),
                   ],

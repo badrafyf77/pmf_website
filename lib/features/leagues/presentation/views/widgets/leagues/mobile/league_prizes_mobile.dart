@@ -1,9 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:pmf_website/core/config/app_router.dart';
+import 'package:pmf_website/core/utils/app_colors.dart';
+import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/styles.dart';
+import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
-class LeaguePrizesMobile extends StatelessWidget {
-  const LeaguePrizesMobile({super.key});
+class LeagueInfoMobile extends StatelessWidget {
+  const LeagueInfoMobile({super.key, required this.league, required this.id});
+
+  final String id;
+  final League league;
 
   @override
   Widget build(BuildContext context) {
@@ -12,22 +20,16 @@ class LeaguePrizesMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AutoSizeText(
-            "Prize",
-            style: Styles.normal20.copyWith(
+            league.title,
+            style: Styles.normal30.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 10),
-          const PrizeItem(
-            title: "1st place: 150Dh",
-          ),
-          const SizedBox(height: 2),
-          const PrizeItem(
-            title: "2nd place: 100Dh",
-          ),
-          const SizedBox(height: 2),
-          const PrizeItem(
-            title: "3th place: 50Dh",
+          AutoSizeText(
+            "${league.totalPlayers} players",
+            style: Styles.normal16.copyWith(
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 10),
           Row(
@@ -38,13 +40,25 @@ class LeaguePrizesMobile extends StatelessWidget {
               ),
               const SizedBox(width: 6),
               AutoSizeText(
-                "01/09/2024",
+                DateFormat('yyyy-MM-dd kk:mm')
+                    .format(league.startDate.toDate()),
                 style: Styles.normal16.copyWith(
                   color: Colors.grey,
                 ),
               ),
             ],
           ),
+          const SizedBox(height: 30),
+          CustomButton(
+            onPressed: () {
+              AppRouter.navigateToWithUrlParametre(
+                  context, AppRouter.leagueTable, 'id', id);
+            },
+            textButton: "See more",
+            backgroundColor: AppColors.kPrimaryColor,
+            height: 35,
+            width: 120,
+          )
         ],
       ),
     );

@@ -8,10 +8,10 @@ class CustomImageNetwork extends StatelessWidget {
     required this.url,
     required this.height,
     required this.width,
-    required this.topLeftRaduis,
-    required this.topRightRaduis,
-    required this.bottomLeftRaduis,
-    required this.bottomRightRaduis,
+    this.topLeftRaduis = 0,
+    this.topRightRaduis = 0,
+    this.bottomLeftRaduis = 0,
+    this.bottomRightRaduis = 0,
   });
 
   final String url;

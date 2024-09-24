@@ -31,6 +31,7 @@ class SettingsBody extends StatelessWidget {
                 if (state is SendPasswordResetSuccess) {
                   myShowToastSuccess(
                       context, "Password reset link sent successfully");
+                  BlocProvider.of<SettingsCubit>(context).getUser(id);
                 }
                 if (state is ChangeEmailSuccess) {
                   myShowToastSuccess(

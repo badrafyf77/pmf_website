@@ -4,6 +4,7 @@ import 'package:pmf_website/core/models/user_model.dart';
 import 'package:pmf_website/core/services/auth_service.dart';
 import 'package:pmf_website/core/services/firestore_service.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dart';
+import 'package:pmf_website/features/leagues/data/repo/league_repo_implementation.dart';
 import 'package:pmf_website/features/profile/data/repo/profile_repo_implementation.dart';
 import 'package:pmf_website/features/settings/data/repo/settings_repo_implementation.dart';
 
@@ -42,10 +43,14 @@ void setupServiceLocator() {
       getIt.get<FirestoreService>(),
     ),
   );
-
   getIt.registerSingleton<SettingsRepoImplementation>(
     SettingsRepoImplementation(
       getIt.get<AuthService>(),
+      getIt.get<FirestoreService>(),
+    ),
+  );
+  getIt.registerSingleton<LeaguesRepoImplementation>(
+    LeaguesRepoImplementation(
       getIt.get<FirestoreService>(),
     ),
   );

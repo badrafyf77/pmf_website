@@ -1,8 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pmf_website/core/models/fixture_model.dart';
+import 'package:pmf_website/core/models/player_model.dart';
 import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
 class FirestoreService {
+  final String playersCollection = "players";
   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference leagues =
+      FirebaseFirestore.instance.collection('leagues');
 
   Future<void> addUser(UserInformation userInfo) async {
     await users.doc(userInfo.id).set(userInfo.toJson());
@@ -47,36 +53,52 @@ class FirestoreService {
     });
   }
 
-  // Future<List<Event>> getEvents() async {
-  //   List<Event> eventsList = [];
-  //   await events.orderBy('date', descending: true).get().then((event) {
-  //     for (var doc in event.docs) {
-  //       eventsList.add(Event.fromJson(doc));
-  //     }
-  //   });
-  //   return eventsList;
-  // }
+  Future<List<League>> getLeagues() async {
+    List<League> leaguesList = [];
+    await leagues.orderBy('startDate', descending: true).get().then((league) {
+      for (var doc in league.docs) {
+        leaguesList.add(League.fromJson(doc));
+      }
+    });
+    return leaguesList;
+  }
 
-  // Future<Event> getEvent(String id) async {
-  //   dynamic data;
-  //   Event event;
-  //   await events.doc(id).get().then<dynamic>((DocumentSnapshot snapshot) async {
-  //     data = snapshot.data();
-  //   });
-  //   event = Event.fromJson(data);
-  //   return event;
-  // }
+  Future<List<Fixture>> getMatches(League league, int round) async {
+    List<Fixture> fixtures = [];
 
-  // Future<Event> getInitialEvent() async {
-  //   dynamic data;
-  //   Event event;
-  //   await initialEvent
-  //       .doc('Initial_event')
-  //       .get()
-  //       .then<dynamic>((DocumentSnapshot snapshot) async {
-  //     data = snapshot.data();
-  //   });
-  //   event = Event.fromJson(data);
-  //   return event;
-  // }
+    var snapshot =
+        await leagues.doc(league.id).collection('round-$round').get();
+
+    for (var doc in snapshot.docs) {
+      fixtures.add(Fixture.fromJson(doc.data()));
+    }
+
+    return fixtures;
+  }
+
+  Future<League> getLeague(String id) async {
+    dynamic data;
+    League league;
+    await leagues
+        .doc(id)
+        .get()
+        .then<dynamic>((DocumentSnapshot snapshot) async {
+      data = snapshot.data();
+    });
+    league = League.fromJson(data);
+    return league;
+  }
+
+  Future<List<Player>> getPlayers(League league) async {
+    List<Player> playersList = [];
+
+    var snapshot =
+        await leagues.doc(league.id).collection(playersCollection).get();
+
+    for (var doc in snapshot.docs) {
+      playersList.add(Player.fromJson(doc.data()));
+    }
+
+    return playersList;
+  }
 }
