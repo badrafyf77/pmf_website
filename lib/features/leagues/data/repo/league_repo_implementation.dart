@@ -26,9 +26,9 @@ class LeaguesRepoImplementation implements LeaguesRepo {
   }
 
   @override
-  Future<Either<Failure, List<Player>>> getPlayers(League league) async {
+  Future<Either<Failure, List<Player>>> getPlayers(String leagueId) async {
     try {
-      var playersList = await _firestoreService.getPlayers(league);
+      var playersList = await _firestoreService.getPlayers(leagueId);
       return right(playersList);
     } catch (e) {
       if (e is FirebaseException) {

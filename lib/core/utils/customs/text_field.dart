@@ -52,7 +52,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         cursorColor: Colors.white,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          hintStyle: Styles.normal16,
+          hintStyle: Styles.normal16.copyWith(color: Colors.grey),
           filled: true,
           fillColor: AppColors.kSecondColor,
           iconColor: AppColors.kPrimaryColor,

@@ -7,10 +7,11 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 
 class LeagueMatchesBody extends StatelessWidget {
   const LeagueMatchesBody({
-    super.key, required this.id,
+    super.key, required this.id, required this.leagueId,
   });
 
   final String id;
+  final String leagueId;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class LeagueMatchesBody extends StatelessWidget {
           children: [
             LeagueBar(
               id: id,
+              leagueId: leagueId,
               isMatchesSelected: true,
             ),
             const LeagueMatches(),

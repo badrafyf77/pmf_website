@@ -6,6 +6,6 @@ import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
 abstract class LeaguesRepo {
   Future<Either<Failure, List<League>>> getLeagues();
-  Future<Either<Failure, List<Player>>> getPlayers(League league);
+  Future<Either<Failure, List<Player>>> getPlayers(String leagueId);
   Future<Either<Failure, List<Fixture>>> getMatches(League league, int round);
 }

@@ -6,6 +6,7 @@ import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_info.dart';
 
 class LeagueInfoMobile extends StatelessWidget {
   const LeagueInfoMobile({super.key, required this.league, required this.id});
@@ -32,33 +33,30 @@ class LeagueInfoMobile extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          Row(
-            children: [
-              AutoSizeText(
-                "Start:",
-                style: Styles.normal16,
-              ),
-              const SizedBox(width: 6),
-              AutoSizeText(
-                DateFormat('yyyy-MM-dd kk:mm')
-                    .format(league.startDate.toDate()),
-                style: Styles.normal16.copyWith(
-                  color: Colors.grey,
-                ),
-              ),
-            ],
+          AutoSizeText(
+            "Start:",
+            style: Styles.normal16,
+          ),
+          const SizedBox(width: 6),
+          AutoSizeText(
+            DateFormat('yyyy-MM-dd kk:mm').format(league.startDate.toDate()),
+            style: Styles.normal14.copyWith(
+              color: Colors.grey,
+            ),
           ),
           const SizedBox(height: 30),
-          CustomButton(
-            onPressed: () {
-              AppRouter.navigateToWithUrlParametre(
-                  context, AppRouter.leagueTable, 'id', id);
-            },
-            textButton: "See more",
-            backgroundColor: AppColors.kPrimaryColor,
-            height: 35,
-            width: 120,
-          )
+          (league.currentRound == 0)
+              ? const SoonText()
+              : CustomButton(
+                  onPressed: () {
+                    AppRouter.navigateToWithTwoUrlParametres(context,
+                        AppRouter.leagueTable, 'id', id, 'league', league.id);
+                  },
+                  textButton: "See more",
+                  backgroundColor: AppColors.kPrimaryColor,
+                  height: 35,
+                  width: 120,
+                )
         ],
       ),
     );

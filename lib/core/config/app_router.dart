@@ -90,13 +90,15 @@ class AppRouter {
       ),
       GoRoute(
         name: leagueTable,
-        path: '$leagueTable/:id',
+        path: '$leagueTable/:id/:league',
         pageBuilder: (context, state) {
           final id = state.pathParameters['id']!;
+          final leagueId = state.pathParameters['league']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
               child: LeagueTableView(
                 id: id,
+                leagueId: leagueId,
               ),
             ),
           );
@@ -104,13 +106,15 @@ class AppRouter {
       ),
       GoRoute(
         name: leagueMatches,
-        path: '$leagueMatches/:id',
+        path: '$leagueMatches/:id/:league',
         pageBuilder: (context, state) {
           final id = state.pathParameters['id']!;
+          final leagueId = state.pathParameters['league']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
               child: LeagueMatchesView(
                 id: id,
+                leagueId: leagueId,
               ),
             ),
           );
@@ -210,5 +214,10 @@ class AppRouter {
   static void navigateToWithUrlParametre(
       BuildContext context, String path, String name, String value) {
     context.goNamed(path, pathParameters: {name: value});
+  }
+
+  static void navigateToWithTwoUrlParametres(BuildContext context, String path,
+      String name1, String value1, String name2, String value2) {
+    context.goNamed(path, pathParameters: {name1: value1, name2: value2});
   }
 }

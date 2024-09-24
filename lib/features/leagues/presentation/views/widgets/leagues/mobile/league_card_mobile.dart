@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pmf_website/core/utils/customs/image_network.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
-import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_prizes_mobile.dart';
+import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_info_mobile.dart';
 
 class LeagueCardMobile extends StatelessWidget {
   const LeagueCardMobile({super.key, required this.id, required this.league});
@@ -16,7 +16,7 @@ class LeagueCardMobile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: PmfBackground(
-          height: 280,
+          height: 260,
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Row(

@@ -47,17 +47,48 @@ class LeagueInfo extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        CustomButton(
-          onPressed: () {
-            AppRouter.navigateToWithUrlParametre(
-                context, AppRouter.leagueTable, 'id', id);
-          },
-          textButton: "See more",
-          backgroundColor: AppColors.kPrimaryColor,
-          height: 35,
-          width: 120,
-        )
+        (league.currentRound == 0)
+            ? const SoonText()
+            : CustomButton(
+                onPressed: () {
+                  AppRouter.navigateToWithTwoUrlParametres(context,
+                      AppRouter.leagueTable, 'id', id, 'league', league.id);
+                },
+                textButton: "See more",
+                backgroundColor: AppColors.kPrimaryColor,
+                height: 35,
+                width: 120,
+              )
       ],
+    );
+  }
+}
+
+class SoonText extends StatelessWidget {
+  const SoonText({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 120,
+      decoration: BoxDecoration(
+        color: AppColors.kPrimaryColor,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: AutoSizeText(
+            "Soon",
+            style: Styles.normal18.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

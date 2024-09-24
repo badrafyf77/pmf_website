@@ -8,10 +8,11 @@ class LeagueBar extends StatelessWidget {
     super.key,
     this.isTableSelected = false,
     this.isMatchesSelected = false,
-    required this.id,
+    required this.id, required this.leagueId,
   });
 
   final String id;
+  final String leagueId;
   final bool isTableSelected;
   final bool isMatchesSelected;
 
@@ -24,6 +25,7 @@ class LeagueBar extends StatelessWidget {
         const SizedBox(height: 15),
         LeagueBarItems(
           id: id,
+          leagueId: leagueId,
           isTableSelected: isTableSelected,
           isMatchesSelected: isMatchesSelected,
         ),
