@@ -62,14 +62,14 @@ class MobileDrawer extends StatelessWidget {
                     context, AppRouter.leagues, 'id', id);
               },
             ),
-            DrawerItem(
-              text: 'CUPS',
-              icon: Icons.event,
-              onTap: () {
-                AppRouter.navigateToWithUrlParametre(
-                    context, AppRouter.cups, 'id', id);
-              },
-            ),
+            // DrawerItem(
+            //   text: 'CUPS',
+            //   icon: Icons.event,
+            //   onTap: () {
+            //     AppRouter.navigateToWithUrlParametre(
+            //         context, AppRouter.cups, 'id', id);
+            //   },
+            // ),
             const SizedBox(
               height: 15,
             ),
@@ -136,13 +136,13 @@ class MobileHomeDrawer extends StatelessWidget {
                 AppRouter.navigateTo(context, AppRouter.home);
               },
             ),
-            DrawerItem(
-              text: 'TROPHIES',
-              icon: Icons.assignment,
-              onTap: () {
-                AppRouter.navigateTo(context, AppRouter.trophies);
-              },
-            ),
+            // DrawerItem(
+            //   text: 'TROPHIES',
+            //   icon: Icons.assignment,
+            //   onTap: () {
+            //     AppRouter.navigateTo(context, AppRouter.trophies);
+            //   },
+            // ),
             const SizedBox(
               height: 15,
             ),

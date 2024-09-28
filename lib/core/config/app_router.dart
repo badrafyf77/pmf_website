@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meta_seo/meta_seo.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
 import 'package:pmf_website/core/utils/service_locator.dart';
 import 'package:pmf_website/features/auth/presentation/views/sign_in_view.dart';
@@ -37,13 +39,22 @@ class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: home,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: MouseFollowerWidget(
-            child: HomeView(),
-          ),
-        ),
-      ),
+          path: home,
+          pageBuilder: (context, state) {
+            if (kIsWeb) {
+              MetaSEO meta = MetaSEO();
+              meta.ogTitle(ogTitle: 'PES MOROCCAN FAMILY');
+              meta.description(description: 'PES MOROCCAN FAMILY');
+              meta.keywords(
+                  keywords:
+                      'pesmoroccanfamily, pmf, pes, efootball maroc, efootball, pes moroccan family');
+            }
+            return const NoTransitionPage(
+              child: MouseFollowerWidget(
+                child: HomeView(),
+              ),
+            );
+          }),
       GoRoute(
         path: signIn,
         pageBuilder: (context, state) => const NoTransitionPage(

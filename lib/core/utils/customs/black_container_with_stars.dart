@@ -31,7 +31,7 @@ class BlackContainerWithStars extends StatelessWidget {
         color: AppColors.kPrimaryColor,
         image: const DecorationImage(
           image: AssetImage(
-            AppAssets.background,
+            AppAssets.logo,
           ),
           fit: BoxFit.cover,
           opacity: .6,

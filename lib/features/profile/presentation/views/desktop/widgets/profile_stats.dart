@@ -31,27 +31,18 @@ List<Widget> children(UserInformation user, bool isMobile) {
   return [
     StatCard(
       isMobile: isMobile,
-      value: user.leagueRanking,
-      title: "Your league ranking",
-    ),
-    SizedBox(
-      width: isMobile ? 0 : 5,
-      height: isMobile ? 5 : 0,
-    ),
-    StatCard(
-      isMobile: isMobile,
       value: user.played,
       title: "Matches played",
     ),
-    SizedBox(
-      width: isMobile ? 0 : 5,
-      height: isMobile ? 5 : 0,
-    ),
-    StatCard(
-      isMobile: isMobile,
-      value: 0,
-      title: "Trophies",
-    ),
+    // SizedBox(
+    //   width: isMobile ? 0 : 5,
+    //   height: isMobile ? 5 : 0,
+    // ),
+    // StatCard(
+    //   isMobile: isMobile,
+    //   value: 0,
+    //   title: "Trophies",
+    // ),
   ];
 }
 

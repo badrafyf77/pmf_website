@@ -27,38 +27,38 @@ class AppFooter extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SocialMediaItem(
-                    onPressed: () {},
+                    onPressed: () {
+                      customLaunchUrl(Constants.pmfFacebook);
+                    },
                     icon: Icons.facebook,
                     backgroundColor: Colors.blue,
                   ),
                   const SizedBox(width: 10),
                   SocialMediaItem(
                     onPressed: () {
+                      customLaunchUrl(Constants.pmfInstagram);
                     },
                     icon: FontAwesomeIcons.instagram,
                     backgroundColor: const Color(0xFFD72072),
                   ),
                   const SizedBox(width: 10),
                   SocialMediaItem(
-                    onPressed: () {},
-                    icon: FontAwesomeIcons.linkedin,
-                    backgroundColor: Colors.blue,
-                  ),
-                  const SizedBox(width: 10),
-                  SocialMediaItem(
-                    onPressed: () {},
-                    icon: FontAwesomeIcons.xTwitter,
-                    backgroundColor: Colors.grey,
+                    onPressed: () {
+                      customLaunchUrl(Constants.pmfYoutube);
+                    },
+                    icon: FontAwesomeIcons.squareYoutube,
+                    backgroundColor: Colors.red,
                   ),
                 ],
               ),
               const SizedBox(height: 10),
               AutoSizeText(
-                'Contact@pmf.org',
+                'www.pesmoroccanfamily.com',
                 style: Styles.normal12,
               ),
+              const SizedBox(height: 5),
               AutoSizeText(
-                "Droits d'auteur © 2024 Tous droits réservés - PES MOROCCAN FAMILY",
+                "Copyright © 2024 All rights reserved. - PES MOROCCAN FAMILY",
                 style: Styles.normal12,
                 textAlign: TextAlign.center,
               ),
@@ -66,9 +66,8 @@ class AppFooter extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AutoSizeText(
-                    'Propulsé par:',
-                    style: Styles.normal14.copyWith(
-                    ),
+                    'Powered by:',
+                    style: Styles.normal14.copyWith(),
                   ),
                   ElevatedButton(
                     onPressed: () {

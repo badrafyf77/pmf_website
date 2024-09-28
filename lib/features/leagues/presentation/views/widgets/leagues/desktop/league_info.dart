@@ -39,7 +39,7 @@ class LeagueInfo extends StatelessWidget {
             ),
             const SizedBox(width: 6),
             AutoSizeText(
-              DateFormat('yyyy-MM-dd kk:mm').format(league.startDate.toDate()),
+              DateFormat('yyyy-MM-dd').format(league.startDate.toDate()),
               style: Styles.normal16.copyWith(
                 color: Colors.grey,
               ),

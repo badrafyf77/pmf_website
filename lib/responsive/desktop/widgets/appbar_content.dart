@@ -121,15 +121,15 @@ class AppbarItems extends StatelessWidget {
                     context, AppRouter.leagues, 'id', id);
               },
             ),
-            const SizedBox(width: 8),
-            AppBarItem(
-              isSelected: isCupsSelected,
-              text: 'CUPS',
-              onPressed: () {
-                AppRouter.navigateToWithUrlParametre(
-                    context, AppRouter.cups, 'id', id);
-              },
-            ),
+            // const SizedBox(width: 8),
+            // AppBarItem(
+            //   isSelected: isCupsSelected,
+            //   text: 'CUPS',
+            //   onPressed: () {
+            //     AppRouter.navigateToWithUrlParametre(
+            //         context, AppRouter.cups, 'id', id);
+            //   },
+            // ),
           ],
         ),
       ),
@@ -164,14 +164,14 @@ class HomeAppbarItems extends StatelessWidget {
               AppRouter.navigateTo(context, AppRouter.home);
             },
           ),
-          const SizedBox(width: 8),
-          AppBarItem(
-            isSelected: isTrophiesSelected,
-            text: 'TROPHIES',
-            onPressed: () {
-              AppRouter.navigateTo(context, AppRouter.trophies);
-            },
-          ),
+          // const SizedBox(width: 8),
+          // AppBarItem(
+          //   isSelected: isTrophiesSelected,
+          //   text: 'TROPHIES',
+          //   onPressed: () {
+          //     AppRouter.navigateTo(context, AppRouter.trophies);
+          //   },
+          // ),
         ],
       ),
     );

@@ -116,7 +116,7 @@ class _SettingsFormState extends State<SettingsForm> {
               Form(
                 key: form3Key,
                 child: TextFieldWithTitleAndButton(
-                  enabled: true,
+                  enabled: emailEnable,
                   title: "  Email",
                   controller: emailController,
                   onChanged: (value) {

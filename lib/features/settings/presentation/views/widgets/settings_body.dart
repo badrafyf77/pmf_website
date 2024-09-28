@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pmf_website/core/utils/customs/app_footer.dart';
 import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/customs/laoding_indicator.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
@@ -61,8 +62,14 @@ class SettingsBody extends StatelessWidget {
                     ),
                   );
                 } else if (state is GetUserSuccess) {
-                  return SettingsForm(
-                    user: state.userInformation,
+                  return Column(
+                    children: [
+                      SettingsForm(
+                        user: state.userInformation,
+                      ),
+                      const SizedBox(height: 25),
+                      const AppFooter(),
+                    ],
                   );
                 }
                 return const Center(
@@ -70,7 +77,6 @@ class SettingsBody extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: 25),
           ],
         ),
       ],

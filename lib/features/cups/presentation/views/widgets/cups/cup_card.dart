@@ -31,7 +31,7 @@ class CupCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Image.asset(
-                          AppAssets.background,
+                          AppAssets.achievements,
                           width: 200,
                           fit: BoxFit.cover,
                         ),
