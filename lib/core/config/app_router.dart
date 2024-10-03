@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:pmf_website/core/utils/customs/mouse_follower.dart';
 import 'package:pmf_website/core/utils/service_locator.dart';
+import 'package:pmf_website/features/auth/presentation/views/forgot_pass_view.dart';
 import 'package:pmf_website/features/auth/presentation/views/sign_in_view.dart';
 import 'package:pmf_website/features/auth/presentation/views/sign_up_view.dart';
 import 'package:pmf_website/features/cups/presentation/views/cup_groups_matches_view.dart';
@@ -26,6 +27,7 @@ class AppRouter {
   static const trophies = '/trophies';
   static const signIn = '/sign-in';
   static const signUp = '/sign-up';
+  static const forgotPass = '/forgot-password';
   static const profile = '/profile';
   static const leagues = '/leagues';
   static const leagueTable = '/league-table';
@@ -68,6 +70,14 @@ class AppRouter {
         pageBuilder: (context, state) => const NoTransitionPage(
           child: MouseFollowerWidget(
             child: SignUpView(),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: forgotPass,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: ForgotPassView(),
           ),
         ),
       ),

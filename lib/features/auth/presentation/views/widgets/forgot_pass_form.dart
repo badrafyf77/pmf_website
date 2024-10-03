@@ -9,20 +9,17 @@ import 'package:pmf_website/core/utils/helpers/show_toast.dart';
 import 'package:pmf_website/core/utils/helpers/validators.dart';
 import 'package:pmf_website/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 
-import 'already_have_an_account_acheck.dart';
-
-class LoginForm extends StatefulWidget {
-  const LoginForm({
+class ForgotPassForm extends StatefulWidget {
+  const ForgotPassForm({
     super.key,
   });
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<ForgotPassForm> createState() => _ForgotPassFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _ForgotPassFormState extends State<ForgotPassForm> {
   TextEditingController emailController = TextEditingController();
-  TextEditingController passController = TextEditingController();
 
   GlobalKey<FormState> formKey = GlobalKey();
 
@@ -31,7 +28,6 @@ class _LoginFormState extends State<LoginForm> {
   @override
   void dispose() {
     emailController.dispose();
-    passController.dispose();
     super.dispose();
   }
 
@@ -44,12 +40,12 @@ class _LoginFormState extends State<LoginForm> {
             loading = true;
           });
         }
-        if (state is SignInSuccess) {
+        if (state is AuthSuccess) {
           setState(() {
             loading = false;
+            emailController.clear();
           });
-          AppRouter.navigateToWithUrlParametre(
-              context, AppRouter.profile, 'id', state.id);
+          myShowToastSuccess(context, "Password reset link sent successfully");
         }
         if (state is AuthFailure) {
           setState(() {
@@ -77,36 +73,15 @@ class _LoginFormState extends State<LoginForm> {
                     hintText: "Email",
                     prefixIcon: const Icon(Icons.mail),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: CustomTextField(
-                      obscureText: true,
-                      controller: passController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Field required";
-                        } else if (value.length < 8) {
-                          return "Password too short";
-                        }
-                        return null;
-                      },
-                      hintText: "Password",
-                      prefixIcon: const Icon(Icons.lock),
-                    ),
-                  ),
                   const SizedBox(height: 16.0),
                   ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         BlocProvider.of<AuthBloc>(context).add(
-                          SignInEvent(
+                          ForgotPassEvent(
                             email: emailController.text,
-                            password: passController.text,
                           ),
                         );
-                        setState(() {
-                          passController.clear();
-                        });
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -118,22 +93,17 @@ class _LoginFormState extends State<LoginForm> {
                       minimumSize: const Size(double.infinity, 56),
                     ),
                     child: Text(
-                      "Login".toUpperCase(),
+                      "Reset password".toUpperCase(),
                     ),
                   ),
                   const SizedBox(height: 16.0),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AlreadyHaveAnAccountCheck(
-                        press: () {
-                          AppRouter.navigateTo(context, AppRouter.signUp);
-                        },
-                      ),
                       CustomTextButton(
-                        text: "Forgot password?",
+                        text: "Back to log in",
                         onpressed: () {
-                          AppRouter.navigateTo(context, AppRouter.forgotPass);
+                          AppRouter.navigateTo(context, AppRouter.signIn);
                         },
                       ),
                     ],
