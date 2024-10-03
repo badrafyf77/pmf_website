@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pmf_website/core/config/app_router.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/core/utils/customs/app_footer.dart';
 import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/features/profile/data/repo/profile_repo.dart';
 
 part 'get_user_info_state.dart';

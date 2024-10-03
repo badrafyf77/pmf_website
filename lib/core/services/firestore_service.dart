@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pmf_website/core/models/fixture_model.dart';
 import 'package:pmf_website/core/models/player_model.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
 class FirestoreService {
@@ -41,6 +41,19 @@ class FirestoreService {
     });
   }
 
+  Future<void> updateUserNameInLeagues(
+      UserInformation user, String newName) async {
+    for (var leagueId in user.participations) {
+      await leagues
+          .doc(leagueId)
+          .collection(playersCollection)
+          .doc(user.id)
+          .update({
+        'displayName': newName,
+      });
+    }
+  }
+
   Future<void> updateEmail(String id, String newEmail) async {
     await users.doc(id).update({
       'email': newEmail,
@@ -66,8 +79,7 @@ class FirestoreService {
   Future<List<Fixture>> getMatches(String leagueId, int round) async {
     List<Fixture> fixtures = [];
 
-    var snapshot =
-        await leagues.doc(leagueId).collection('round-$round').get();
+    var snapshot = await leagues.doc(leagueId).collection('round-$round').get();
 
     for (var doc in snapshot.docs) {
       fixtures.add(Fixture.fromJson(doc.data()));

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/core/utils/customs/custom_text_button.dart';
 import 'package:pmf_website/core/utils/helpers/validators.dart';
 import 'package:pmf_website/features/settings/presentation/manager/cubit/settings_cubit.dart';

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo.dart';
 import 'package:uuid/uuid.dart';
 
@@ -28,6 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           wins: 0,
           draws: 0,
           losses: 0,
+          participations: [],
         );
         var user = await _authRepo.signUp(userInfo);
         user.fold((failure) {

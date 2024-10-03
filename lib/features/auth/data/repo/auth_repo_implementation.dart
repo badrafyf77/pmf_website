@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/core/services/auth_service.dart';
 import 'package:pmf_website/core/services/firestore_service.dart';
 import 'package:pmf_website/core/utils/failures.dart';

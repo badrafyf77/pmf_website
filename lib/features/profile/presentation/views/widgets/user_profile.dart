@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
 import 'package:pmf_website/features/profile/presentation/views/desktop/widgets/profile_image.dart';
 import 'package:pmf_website/features/profile/presentation/views/desktop/widgets/profile_info.dart';

@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pmf_website/core/models/user_model.dart';
+import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/core/services/auth_service.dart';
 import 'package:pmf_website/core/services/firestore_service.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dart';
@@ -29,6 +29,7 @@ void setupServiceLocator() {
       wins: 100,
       draws: 50,
       losses: 50,
+      participations: [],
     ),
   );
 
