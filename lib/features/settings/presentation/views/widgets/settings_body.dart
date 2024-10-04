@@ -28,6 +28,7 @@ class SettingsBody extends StatelessWidget {
               listener: (context, state) {
                 if (state is SettingsFailure) {
                   myShowToastError(context, state.err);
+                  BlocProvider.of<SettingsCubit>(context).getUser(id);
                 }
                 if (state is SendPasswordResetSuccess) {
                   myShowToastSuccess(
@@ -51,17 +52,7 @@ class SettingsBody extends StatelessWidget {
                 }
               },
               builder: (context, state) {
-                if (state is SettingsFailure) {
-                  return IconButton(
-                    onPressed: () {
-                      BlocProvider.of<SettingsCubit>(context).getUser(id);
-                    },
-                    icon: const Icon(
-                      Icons.refresh,
-                      color: Colors.white,
-                    ),
-                  );
-                } else if (state is GetUserSuccess) {
+                if (state is GetUserSuccess) {
                   return Column(
                     children: [
                       SettingsForm(

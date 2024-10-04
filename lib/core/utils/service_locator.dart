@@ -22,7 +22,6 @@ void setupServiceLocator() {
       id: 'id',
       displayName: 'displayName',
       email: 'email',
-      password: 'password',
       joinedDate: Timestamp.now(),
       leagueRanking: 0,
       played: 200,

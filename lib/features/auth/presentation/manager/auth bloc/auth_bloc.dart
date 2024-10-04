@@ -21,7 +21,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           id: id,
           displayName: event.displayName,
           email: event.email,
-          password: event.password,
           joinedDate: Timestamp.now(),
           leagueRanking: 0,
           played: 0,
@@ -30,7 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           losses: 0,
           participations: [],
         );
-        var user = await _authRepo.signUp(userInfo);
+        var user = await _authRepo.signUp(userInfo,event.password);
         user.fold((failure) {
           emit(AuthFailure(errorMessage: failure.errMessage));
         }, (userCredential) {

@@ -89,8 +89,10 @@ class _SettingsFormState extends State<SettingsForm> {
                   onpressed: () async {
                     if (form1Key.currentState!.validate() &&
                         form2Key.currentState!.validate()) {
-                      BlocProvider.of<SettingsCubit>(context)
-                          .changeName(widget.user, displayNameController.text);
+                      BlocProvider.of<SettingsCubit>(context).changeName(
+                          widget.user,
+                          currentPassController.text,
+                          displayNameController.text);
                     }
                   },
                 ),
@@ -107,9 +109,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     if (value == null || value.isEmpty) {
                       return 'This field is required';
                     } else if (value.length < 8) {
-                      return 'Passowrd too short';
-                    } else if (value != widget.user.password) {
-                      return 'The password you entered is incorrect';
+                      return 'too short';
                     }
                     return null;
                   },
@@ -146,8 +146,10 @@ class _SettingsFormState extends State<SettingsForm> {
                   onpressed: () async {
                     if (form3Key.currentState!.validate() &&
                         form2Key.currentState!.validate()) {
-                      BlocProvider.of<SettingsCubit>(context)
-                          .changeEmail(widget.user, emailController.text);
+                      BlocProvider.of<SettingsCubit>(context).changeEmail(
+                          widget.user,
+                          currentPassController.text,
+                          emailController.text);
                     }
                   },
                 ),
@@ -165,8 +167,6 @@ class _SettingsFormState extends State<SettingsForm> {
                       return 'This field is required';
                     } else if (value.length < 8) {
                       return 'Passowrd too short';
-                    } else if (newPassController.text == widget.user.password) {
-                      return "The new password cannot be the same as the old password";
                     }
                     return null;
                   },
@@ -174,8 +174,10 @@ class _SettingsFormState extends State<SettingsForm> {
                   onpressed: () {
                     if (form4Key.currentState!.validate() &&
                         form2Key.currentState!.validate()) {
-                      BlocProvider.of<SettingsCubit>(context)
-                          .changePass(widget.user, newPassController.text);
+                      BlocProvider.of<SettingsCubit>(context).changePass(
+                          widget.user,
+                          currentPassController.text,
+                          newPassController.text);
                     }
                   },
                 ),

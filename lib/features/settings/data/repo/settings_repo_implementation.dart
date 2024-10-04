@@ -33,9 +33,10 @@ class SettingsRepoImplementation implements SettingsRepo {
 
   @override
   Future<Either<Failure, UserInformation>> changeEmail(
-      UserInformation user, String newEmail) async {
+      UserInformation user, String password, String newEmail) async {
     try {
-      await _authService.updateEmail(user, newEmail);
+      await _authService.signIn(user.email, password);
+      await _authService.updateEmail(user.email, password, newEmail);
       await _firestoreService.updateEmail(user.id, newEmail);
       final u = await _firestoreService.getUser(user.id);
       return right(u);
@@ -51,8 +52,9 @@ class SettingsRepoImplementation implements SettingsRepo {
 
   @override
   Future<Either<Failure, UserInformation>> changeName(
-      UserInformation user, String newName) async {
+      UserInformation user, String password, String newName) async {
     try {
+      await _authService.signIn(user.email, password);
       await _firestoreService.updateName(user.id, newName);
       await _firestoreService.updateUserNameInLeagues(user, newName);
       final u = await _firestoreService.getUser(user.id);
@@ -69,9 +71,10 @@ class SettingsRepoImplementation implements SettingsRepo {
 
   @override
   Future<Either<Failure, UserInformation>> changePass(
-      UserInformation user, String newPass) async {
+      UserInformation user, String password, String newPass) async {
     try {
-      await _authService.updatePassword(user, newPass);
+      await _authService.signIn(user.email, password);
+      await _authService.updatePassword(user.email, password, newPass);
       await _firestoreService.updatePassword(user.id, newPass);
       final u = await _firestoreService.getUser(user.id);
       return right(u);

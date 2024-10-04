@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pmf_website/core/utils/customs/image_network.dart';
+import 'package:pmf_website/core/utils/customs/logo.dart';
 import 'package:pmf_website/core/utils/customs/pmf_background.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/mobile/league_info_mobile.dart';
@@ -26,18 +26,13 @@ class LeagueCardMobile extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CustomImageNetwork(
-                          url: league.downloadUrl,
-                          height: 120,
-                          width: 120,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
                         ),
+                        child: const AppLogo(),
                       ),
                     ),
                   ],

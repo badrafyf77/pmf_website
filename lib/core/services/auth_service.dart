@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pmf_website/core/models/user_info_model.dart';
 
 class AuthService {
   final _auth = FirebaseAuth.instance;
@@ -28,15 +27,15 @@ class AuthService {
     await _auth.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> updateEmail(UserInformation user, String newEmail) async {
-    await reAuthentification(user.email, user.password);
+  Future<void> updateEmail(String email, String password, String newEmail) async {
+    await reAuthentification(email, password);
     await _auth.currentUser!.delete();
 
-    await signUp(newEmail, user.password);
+    await signUp(newEmail, password);
   }
 
-  Future<void> updatePassword(UserInformation user, String newPassword) async {
-    await reAuthentification(user.email, user.password);
+  Future<void> updatePassword(String email, String password, String newPassword) async {
+    await reAuthentification(email, password);
     await _auth.currentUser!.updatePassword(newPassword);
   }
 

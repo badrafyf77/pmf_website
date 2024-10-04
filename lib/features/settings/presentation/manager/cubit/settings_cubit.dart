@@ -21,9 +21,9 @@ class SettingsCubit extends Cubit<SettingsState> {
     );
   }
 
-  Future<void> changeName(UserInformation user, String newName) async {
+  Future<void> changeName(UserInformation user, String password, String newName) async {
     emit(SettingsLaoding());
-    var result = await _settingsRepo.changeName(user, newName);
+    var result = await _settingsRepo.changeName(user,password, newName);
     result.fold(
       (left) {
         emit(SettingsFailure(err: left.errMessage));
@@ -34,9 +34,9 @@ class SettingsCubit extends Cubit<SettingsState> {
     );
   }
 
-  Future<void> changePass(UserInformation user, String newPass) async {
+  Future<void> changePass(UserInformation user, String passowrd, String newPass) async {
     emit(SettingsLaoding());
-    var result = await _settingsRepo.changePass(user, newPass);
+    var result = await _settingsRepo.changePass(user, passowrd, newPass);
     result.fold(
       (left) {
         emit(SettingsFailure(err: left.errMessage));
@@ -47,9 +47,9 @@ class SettingsCubit extends Cubit<SettingsState> {
     );
   }
 
-  Future<void> changeEmail(UserInformation user, String newEmail) async {
+  Future<void> changeEmail(UserInformation user, String passowrd, String newEmail) async {
     emit(SettingsLaoding());
-    var result = await _settingsRepo.changeEmail(user, newEmail);
+    var result = await _settingsRepo.changeEmail(user, passowrd, newEmail);
     result.fold(
       (left) {
         emit(SettingsFailure(err: left.errMessage));

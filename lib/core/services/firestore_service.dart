@@ -114,3 +114,20 @@ class FirestoreService {
     return playersList;
   }
 }
+
+//---------TEST----------
+//---------TEST----------
+//---------TEST----------
+Future<void> deletePasswords() async {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  // Get all users from the players collection
+  var usersSnapshot = await firestore.collection('users').get();
+
+  for (var doc in usersSnapshot.docs) {
+    await firestore.collection('users').doc(doc.id).update({'password': FieldValue.delete()});
+  }
+
+  // ignore: avoid_print
+  print("Complete");
+}
