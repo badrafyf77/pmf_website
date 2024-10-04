@@ -43,7 +43,7 @@ class UserInformation {
     return {
       'id': id,
       'displayName': displayName,
-      'email': email,
+      'email': email.toLowerCase(),
       'joinedDate': joinedDate,
       'leagueRanking': leagueRanking,
       'played': played,

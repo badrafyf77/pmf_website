@@ -13,7 +13,7 @@ class AuthService {
 
   Future<User> signIn(String email, String password) async {
     final credential = await _auth.signInWithEmailAndPassword(
-      email: email,
+      email: email.toLowerCase(),
       password: password,
     );
     return credential.user!;
