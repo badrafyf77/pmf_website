@@ -18,8 +18,10 @@ class _LeagueTableViewState extends State<LeagueTableView> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<LeaguesCubit>(context).getLeague(widget.leagueId);
     BlocProvider.of<LeaguesCubit>(context).getPlayers(widget.leagueId);
   }
+
   @override
   Widget build(BuildContext context) {
     return GeneralScaffold(

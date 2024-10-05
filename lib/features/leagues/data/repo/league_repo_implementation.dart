@@ -52,4 +52,17 @@ class LeaguesRepoImplementation implements LeaguesRepo {
       return left(FirestoreFailure(errMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, League>> getLeague(String leagueId) async {
+    try {
+      League league = await _firestoreService.getLeague(leagueId);
+      return right(league);
+    } catch (e) {
+      if (e is FirebaseException) {
+        return left(FirestoreFailure.fromFirestoreFailure(e));
+      }
+      return left(FirestoreFailure(errMessage: e.toString()));
+    }
+  }
 }

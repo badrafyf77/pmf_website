@@ -20,6 +20,12 @@ final class GetLeaguesSuccess extends LeaguesState {
   GetLeaguesSuccess({required this.leaguesList});
 }
 
+final class GetLeagueSuccess extends LeaguesState {
+  final League league;
+
+  GetLeagueSuccess({required this.league});
+}
+
 final class GetPlayersSuccess extends LeaguesState {
   final List<Player> playersList;
 

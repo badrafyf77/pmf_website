@@ -11,6 +11,12 @@ class LeaguesCubit extends Cubit<LeaguesState> {
   final LeaguesRepo _leaguesRepo;
   LeaguesCubit(this._leaguesRepo) : super(LeaguesInitial());
 
+  Future<void> getLeague(String leagueId) async {
+    var result = await _leaguesRepo.getLeague(leagueId);
+    result.fold((left) {}, (right) {
+      emit(GetLeagueSuccess(league: right));
+    });
+  }
 
   Future<void> getLeagues() async {
     emit(Leagueslaoding());
@@ -35,12 +41,12 @@ class LeaguesCubit extends Cubit<LeaguesState> {
   Future<void> getMatches(String leagueId, {int? round}) async {
     emit(Leagueslaoding());
     dynamic result;
-      if (round == null) {
-        League league = await FirestoreService().getLeague(leagueId);
-        result = await _leaguesRepo.getMatches(leagueId, league.currentRound);
-      }else{
-        result = await _leaguesRepo.getMatches(leagueId, round);
-      }
+    if (round == null) {
+      League league = await FirestoreService().getLeague(leagueId);
+      result = await _leaguesRepo.getMatches(leagueId, league.currentRound);
+    } else {
+      result = await _leaguesRepo.getMatches(leagueId, round);
+    }
     result.fold((left) {
       emit(LeaguesFailure(err: left.errMessage));
     }, (right) {

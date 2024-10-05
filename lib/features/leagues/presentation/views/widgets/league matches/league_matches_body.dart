@@ -9,7 +9,9 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 
 class LeagueMatchesBody extends StatefulWidget {
   const LeagueMatchesBody({
-    super.key, required this.id, required this.leagueId,
+    super.key,
+    required this.id,
+    required this.leagueId,
   });
 
   final String id;
@@ -23,8 +25,10 @@ class _LeagueMatchesBodyState extends State<LeagueMatchesBody> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<LeaguesCubit>(context).getLeague(widget.leagueId);
     BlocProvider.of<LeaguesCubit>(context).getMatches(widget.leagueId);
   }
+
   @override
   Widget build(BuildContext context) {
     return CustomListView(
