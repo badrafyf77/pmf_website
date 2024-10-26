@@ -37,6 +37,8 @@ class _WeeksRowState extends State<WeeksRow> {
                 round--;
               });
               BlocProvider.of<LeaguesCubit>(context)
+                  .getLeague(widget.league.id);
+              BlocProvider.of<LeaguesCubit>(context)
                   .getMatches(widget.league.id, round: round);
             }
           },
@@ -57,12 +59,14 @@ class _WeeksRowState extends State<WeeksRow> {
         const SizedBox(width: 50),
         IconButton(
           onPressed: () {
-            int maxRounds =
-                (widget.league.totalPlayers - 1) * (widget.league.isHomeAndAway ? 2 : 1);
+            int maxRounds = (widget.league.totalPlayers - 1) *
+                (widget.league.isHomeAndAway ? 2 : 1);
             if (round < maxRounds) {
               setState(() {
                 round++;
               });
+              BlocProvider.of<LeaguesCubit>(context)
+                  .getLeague(widget.league.id);
               BlocProvider.of<LeaguesCubit>(context)
                   .getMatches(widget.league.id, round: round);
             }

@@ -51,6 +51,35 @@ class FirestoreService {
           .update({
         'displayName': newName,
       });
+      League league = await getLeague(leagueId);
+      int maxRounds =
+          (league.totalPlayers - 1) * (league.isHomeAndAway ? 2 : 1);
+      for (var i = 1; i <= maxRounds; i++) {
+        List<Fixture> fixtures = await getMatches(league.id, i);
+        for (var element in fixtures) {
+          if (element.homeId == user.id) {
+            await leagues
+                .doc(league.id)
+                .collection('round-$i')
+                .doc(element.id)
+                .update(
+              {
+                'homeName': newName,
+              },
+            );
+          } else if (element.awayId == user.id) {
+            await leagues
+                .doc(league.id)
+                .collection('round-$i')
+                .doc(element.id)
+                .update(
+              {
+                'awayName': newName,
+              },
+            );
+          }
+        }
+      }
     }
   }
 
@@ -125,7 +154,10 @@ Future<void> deletePasswords() async {
   var usersSnapshot = await firestore.collection('users').get();
 
   for (var doc in usersSnapshot.docs) {
-    await firestore.collection('users').doc(doc.id).update({'password': FieldValue.delete()});
+    await firestore
+        .collection('users')
+        .doc(doc.id)
+        .update({'password': FieldValue.delete()});
   }
 
   // ignore: avoid_print
