@@ -8,7 +8,6 @@ class TrophiesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GeneralScaffold(
-      isHomeAppbar: true,
       isTrophiesSelected: true,
       desktopBody: TrophiesBody(),
       tabletBody: TrophiesBody(),

@@ -5,9 +5,7 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class LeaguesView extends StatefulWidget {
-  const LeaguesView({super.key, required this.id});
-
-  final String id;
+  const LeaguesView({super.key});
 
   @override
   State<LeaguesView> createState() => _LeaguesViewState();
@@ -22,13 +20,11 @@ class _LeaguesViewState extends State<LeaguesView> {
 
   @override
   Widget build(BuildContext context) {
-    return GeneralScaffold(
-      id: widget.id,
+    return const GeneralScaffold(
       isLeaguesSelected: true,
-      desktopBody: LeaguesBody(id: widget.id),
-      tabletBody: LeaguesBody(id: widget.id),
+      desktopBody: LeaguesBody(),
+      tabletBody: LeaguesBody(),
       mobileBody: LeaguesBody(
-        id: widget.id,
         isMobile: true,
       ),
     );

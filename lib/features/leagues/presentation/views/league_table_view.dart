@@ -5,9 +5,8 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class LeagueTableView extends StatefulWidget {
-  const LeagueTableView({super.key, required this.id, required this.leagueId});
+  const LeagueTableView({super.key, required this.leagueId});
 
-  final String id;
   final String leagueId;
 
   @override
@@ -25,11 +24,10 @@ class _LeagueTableViewState extends State<LeagueTableView> {
   @override
   Widget build(BuildContext context) {
     return GeneralScaffold(
-      id: widget.id,
       isLeaguesSelected: true,
-      desktopBody: LeagueTableBody(id: widget.id, leagueId: widget.leagueId),
-      tabletBody: LeagueTableBody(id: widget.id, leagueId: widget.leagueId),
-      mobileBody: LeagueTableBody(id: widget.id, leagueId: widget.leagueId),
+      desktopBody: LeagueTableBody(leagueId: widget.leagueId),
+      tabletBody: LeagueTableBody(leagueId: widget.leagueId),
+      mobileBody: LeagueTableBody(leagueId: widget.leagueId),
     );
   }
 }

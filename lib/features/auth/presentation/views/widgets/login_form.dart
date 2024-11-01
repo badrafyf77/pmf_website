@@ -5,6 +5,7 @@ import 'package:pmf_website/core/utils/app_colors.dart';
 import 'package:pmf_website/core/utils/customs/custom_text_button.dart';
 import 'package:pmf_website/core/utils/customs/laoding_indicator.dart';
 import 'package:pmf_website/core/utils/customs/text_field.dart';
+import 'package:pmf_website/core/utils/helpers/session.dart';
 import 'package:pmf_website/core/utils/helpers/show_toast.dart';
 import 'package:pmf_website/core/utils/helpers/validators.dart';
 import 'package:pmf_website/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
@@ -48,8 +49,8 @@ class _LoginFormState extends State<LoginForm> {
           setState(() {
             loading = false;
           });
-          AppRouter.navigateToWithUrlParametre(
-              context, AppRouter.profile, 'id', state.id);
+          storeId(state.id);
+          AppRouter.navigateTo(context, AppRouter.profile);
         }
         if (state is AuthFailure) {
           setState(() {

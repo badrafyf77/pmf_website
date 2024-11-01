@@ -10,11 +10,9 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/league%2
 class LeagueMatchesBody extends StatefulWidget {
   const LeagueMatchesBody({
     super.key,
-    required this.id,
     required this.leagueId,
   });
 
-  final String id;
   final String leagueId;
 
   @override
@@ -37,7 +35,6 @@ class _LeagueMatchesBodyState extends State<LeagueMatchesBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LeagueBar(
-              id: widget.id,
               leagueId: widget.leagueId,
               isMatchesSelected: true,
             ),

@@ -8,9 +8,8 @@ import 'package:pmf_website/core/utils/styles.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 
 class LeagueInfo extends StatelessWidget {
-  const LeagueInfo({super.key, required this.id, required this.league});
+  const LeagueInfo({super.key, required this.league});
 
-  final String id;
   final League league;
 
   @override
@@ -51,8 +50,8 @@ class LeagueInfo extends StatelessWidget {
             ? const SoonText()
             : CustomButton(
                 onPressed: () {
-                  AppRouter.navigateToWithTwoUrlParametres(context,
-                      AppRouter.leagueTable, 'id', id, 'league', league.id);
+                  AppRouter.navigateToWithUrlParametre(context,
+                      AppRouter.leagueTable, 'league', league.id);
                 },
                 textButton: "See more",
                 backgroundColor: AppColors.kPrimaryColor,

@@ -9,7 +9,6 @@ class SignInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GeneralScaffold(
-      isHomeAppbar: true,
       desktopBody: SignInBody(),
       tabletBody: MobileSignInBody(),
       mobileBody: MobileSignInBody(),

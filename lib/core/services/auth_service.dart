@@ -27,14 +27,16 @@ class AuthService {
     await _auth.sendPasswordResetEmail(email: email);
   }
 
-  Future<void> updateEmail(String email, String password, String newEmail) async {
+  Future<void> updateEmail(
+      String email, String password, String newEmail) async {
     await reAuthentification(email, password);
     await _auth.currentUser!.delete();
 
     await signUp(newEmail, password);
   }
 
-  Future<void> updatePassword(String email, String password, String newPassword) async {
+  Future<void> updatePassword(
+      String email, String password, String newPassword) async {
     await reAuthentification(email, password);
     await _auth.currentUser!.updatePassword(newPassword);
   }

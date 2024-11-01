@@ -11,10 +11,9 @@ import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/
 import 'package:skeletonizer/skeletonizer.dart';
 
 class LeaguesBody extends StatelessWidget {
-  const LeaguesBody({super.key, this.isMobile = false, required this.id});
+  const LeaguesBody({super.key, this.isMobile = false});
 
   final bool isMobile;
-  final String id;
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +67,10 @@ class LeaguesBody extends StatelessWidget {
                         child: Column(
                           children: [
                             isMobile
-                                ? LeagueCardMobile(id: id,league: (state is GetLeaguesSuccess)
+                                ? LeagueCardMobile(league: (state is GetLeaguesSuccess)
                                         ? state.leaguesList[index]
                                         : fakeLeague,)
                                 : LeagueCard(
-                                    id: id,
                                     league: (state is GetLeaguesSuccess)
                                         ? state.leaguesList[index]
                                         : fakeLeague,

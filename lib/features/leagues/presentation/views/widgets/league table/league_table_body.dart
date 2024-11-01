@@ -12,11 +12,9 @@ import 'package:skeletonizer/skeletonizer.dart';
 class LeagueTableBody extends StatelessWidget {
   const LeagueTableBody({
     super.key,
-    required this.id,
     required this.leagueId,
   });
 
-  final String id;
   final String leagueId;
 
   @override
@@ -28,7 +26,6 @@ class LeagueTableBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LeagueBar(
-              id: id,
               leagueId: leagueId,
               isTableSelected: true,
             ),

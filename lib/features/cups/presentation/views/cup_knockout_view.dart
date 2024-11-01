@@ -3,14 +3,12 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20knock
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class CupKnockoutView extends StatelessWidget {
-  const CupKnockoutView({super.key, required this.id});
-
-  final String id;
+  const CupKnockoutView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GeneralScaffold(
-      id: id,
+    const id = "";
+    return const GeneralScaffold(
       isCupsSelected: true,
       desktopBody: CupKnockoutBody(id: id),
       tabletBody: CupKnockoutBody(id: id),

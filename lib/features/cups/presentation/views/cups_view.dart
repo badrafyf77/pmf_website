@@ -3,14 +3,12 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cups/cups_b
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class CupsView extends StatelessWidget {
-  const CupsView({super.key, required this.id});
-
-  final String id;
+  const CupsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GeneralScaffold(
-      id: id,
+    const id = "";
+    return const GeneralScaffold(
       isCupsSelected: true,
       desktopBody: CupsBody(id: id),
       tabletBody: CupsBody(id: id),

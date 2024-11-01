@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pmf_website/core/config/app_router.dart';
 import 'package:pmf_website/core/models/user_info_model.dart';
-import 'package:pmf_website/core/services/auth_service.dart';
-import 'package:pmf_website/core/utils/app_colors.dart';
-import 'package:pmf_website/core/utils/customs/button.dart';
 import 'package:pmf_website/core/utils/customs/custom_text_button.dart';
 import 'package:pmf_website/core/utils/helpers/validators.dart';
 import 'package:pmf_website/features/settings/presentation/manager/cubit/settings_cubit.dart';
 import 'package:pmf_website/features/settings/presentation/views/widgets/textfield_title_button.dart';
+import 'package:pmf_website/responsive/widgets/sign_in_out_buttons.dart';
 
 class SettingsForm extends StatefulWidget {
   const SettingsForm({super.key, required this.user});
@@ -197,15 +194,7 @@ class _SettingsFormState extends State<SettingsForm> {
               },
             ),
             const SizedBox(width: 20),
-            CustomButton(
-              onPressed: () {
-                AuthService().signOut();
-                AppRouter.navigateTo(context, AppRouter.home);
-              },
-              textButton: "Log out",
-              backgroundColor: AppColors.kPrimaryColor,
-              height: 40,
-            ),
+            const LogoutButton(),
           ],
         ),
       ],

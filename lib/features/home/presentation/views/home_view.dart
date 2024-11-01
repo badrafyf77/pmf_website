@@ -9,7 +9,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const GeneralScaffold(
-      isHomeAppbar: true,
       isHomeSelected: true,
       desktopBody: HomeBody(),
       tabletBody: HomeBody(),

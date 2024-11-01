@@ -5,9 +5,8 @@ import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 import 'package:pmf_website/features/leagues/presentation/views/widgets/leagues/desktop/league_info.dart';
 
 class LeagueCard extends StatelessWidget {
-  const LeagueCard({super.key, required this.id, required this.league});
+  const LeagueCard({super.key, required this.league});
 
-  final String id;
   final League league;
 
   @override
@@ -37,7 +36,6 @@ class LeagueCard extends StatelessWidget {
                     const SizedBox(width: 28),
                     LeagueInfo(
                       league: league,
-                      id: id,
                     ),
                   ],
                 ),

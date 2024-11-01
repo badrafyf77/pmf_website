@@ -83,42 +83,34 @@ class AppRouter {
       ),
       GoRoute(
         name: profile,
-        path: '$profile/:id',
+        path: profile,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: ProfileView(
-                id: id,
-              ),
+              child: ProfileView(),
             ),
           );
         },
       ),
       GoRoute(
         name: leagues,
-        path: '$leagues/:id',
+        path: leagues,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: LeaguesView(
-                id: id,
-              ),
+              child: LeaguesView(),
             ),
           );
         },
       ),
       GoRoute(
         name: leagueTable,
-        path: '$leagueTable/:id/:league',
+        path: '$leagueTable/:league',
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
           final leagueId = state.pathParameters['league']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
               child: LeagueTableView(
-                id: id,
                 leagueId: leagueId,
               ),
             ),
@@ -127,14 +119,12 @@ class AppRouter {
       ),
       GoRoute(
         name: leagueMatches,
-        path: '$leagueMatches/:id/:league',
+        path: '$leagueMatches/:league',
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
           final leagueId = state.pathParameters['league']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
               child: LeagueMatchesView(
-                id: id,
                 leagueId: leagueId,
               ),
             ),
@@ -143,56 +133,44 @@ class AppRouter {
       ),
       GoRoute(
         name: cups,
-        path: '$cups/:id',
+        path: cups,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: CupsView(
-                id: id,
-              ),
+              child: CupsView(),
             ),
           );
         },
       ),
       GoRoute(
         name: cupTable,
-        path: '$cupTable/:id',
+        path: cupTable,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: CupTableView(
-                id: id,
-              ),
+              child: CupTableView(),
             ),
           );
         },
       ),
       GoRoute(
         name: cupGroupsMatches,
-        path: '$cupGroupsMatches/:id',
+        path: cupGroupsMatches,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: CupGroupsMatchesView(
-                id: id,
-              ),
+              child: CupGroupsMatchesView(),
             ),
           );
         },
       ),
       GoRoute(
         name: cupKnockoutStage,
-        path: '$cupKnockoutStage/:id',
+        path: cupKnockoutStage,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
-          return NoTransitionPage(
+          return const NoTransitionPage(
             child: MouseFollowerWidget(
-              child: CupKnockoutView(
-                id: id,
-              ),
+              child: CupKnockoutView(),
             ),
           );
         },
@@ -207,18 +185,17 @@ class AppRouter {
       ),
       GoRoute(
         name: settings,
-        path: '$settings/:id',
+        path: settings,
         pageBuilder: (context, state) {
-          final id = state.pathParameters['id']!;
           return NoTransitionPage(
             child: MouseFollowerWidget(
               child: BlocProvider(
-                create: (context) => SettingsCubit(
-                  getIt.get<SettingsRepoImplementation>(),
-                )..getUser(id),
-                child: SettingsView(
-                  id: id,
-                ),
+                create: (context) {
+                  return SettingsCubit(
+                    getIt.get<SettingsRepoImplementation>(),
+                  );
+                },
+                child: const SettingsView(),
               ),
             ),
           );

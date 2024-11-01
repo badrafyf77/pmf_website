@@ -3,14 +3,12 @@ import 'package:pmf_website/features/cups/presentation/views/widgets/cup%20table
 import 'package:pmf_website/responsive/general_scaffold.dart';
 
 class CupTableView extends StatelessWidget {
-  const CupTableView({super.key, required this.id});
-
-  final String id;
+  const CupTableView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GeneralScaffold(
-      id: id,
+    const id = "";
+    return const GeneralScaffold(
       isCupsSelected: true,
       desktopBody: CupTableBody(id: id),
       tabletBody: CupTableBody(id: id),
