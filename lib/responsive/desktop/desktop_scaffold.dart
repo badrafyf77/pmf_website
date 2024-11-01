@@ -9,7 +9,7 @@ class DesktopScaffold extends StatelessWidget {
     required this.isTrophiesSelected,
     required this.isProfileSelected,
     required this.isLeaguesSelected,
-    required this.isCupsSelected, required this.isSettingsSelected,
+    required this.isCupsSelected, required this.isSettingsSelected, required this.isNewsSelected,
   });
 
   final bool isHomeSelected;
@@ -18,6 +18,7 @@ class DesktopScaffold extends StatelessWidget {
   final bool isLeaguesSelected;
   final bool isCupsSelected;
   final bool isSettingsSelected;
+  final bool isNewsSelected;
   final Widget body;
 
   @override
@@ -33,6 +34,7 @@ class DesktopScaffold extends StatelessWidget {
           isLeaguesSelected: isLeaguesSelected,
           isCupsSelected: isCupsSelected,
           isSettingsSelected: isSettingsSelected,
+          isNewsSelected: isNewsSelected,
         ),
         body: body,
       ),

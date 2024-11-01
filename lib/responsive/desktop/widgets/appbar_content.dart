@@ -13,7 +13,7 @@ class AppbarContent extends StatelessWidget {
     required this.isProfileSelected,
     required this.isLeaguesSelected,
     required this.isCupsSelected,
-    required this.isSettingsSelected,
+    required this.isSettingsSelected, required this.isNewsSelected,
   });
 
   final bool isHomeSelected;
@@ -22,6 +22,7 @@ class AppbarContent extends StatelessWidget {
   final bool isLeaguesSelected;
   final bool isCupsSelected;
   final bool isSettingsSelected;
+  final bool isNewsSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class AppbarContent extends StatelessWidget {
           isLeaguesSelected: isLeaguesSelected,
           isCupsSelected: isCupsSelected,
           isTrophiesSelected: isTrophiesSelected,
-          isSettingsSelected: isSettingsSelected,
+          isSettingsSelected: isSettingsSelected, isNewsSelected: isNewsSelected,
         ),
         getId() == null ? const SignInButton() : const LogoutButton(),
       ],
@@ -51,7 +52,7 @@ class AppbarItems extends StatelessWidget {
     required this.isCupsSelected,
     required this.isHomeSelected,
     required this.isSettingsSelected,
-    required this.isTrophiesSelected,
+    required this.isTrophiesSelected, required this.isNewsSelected,
   });
 
   final bool isProfileSelected;
@@ -60,6 +61,7 @@ class AppbarItems extends StatelessWidget {
   final bool isHomeSelected;
   final bool isSettingsSelected;
   final bool isTrophiesSelected;
+  final bool isNewsSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +80,14 @@ class AppbarItems extends StatelessWidget {
               text: 'HOME',
               onPressed: () {
                 AppRouter.navigateTo(context, AppRouter.home);
+              },
+            ),
+            const SizedBox(width: 8),
+            AppBarItem(
+              isSelected: isNewsSelected,
+              text: 'NEWS',
+              onPressed: () {
+                AppRouter.navigateTo(context, AppRouter.news);
               },
             ),
             const SizedBox(width: 8),

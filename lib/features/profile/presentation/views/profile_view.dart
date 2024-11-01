@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/helpers/session.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 import 'package:pmf_website/features/profile/presentation/manager/get%20user%20info%20cubit/get_user_info_cubit.dart';
@@ -53,7 +54,7 @@ class IdIsNullSignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
+      child: ColumnFadeInAnimation(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(

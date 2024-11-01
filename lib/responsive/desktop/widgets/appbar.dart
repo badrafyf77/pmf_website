@@ -8,7 +8,9 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.isTrophiesSelected,
     required this.isProfileSelected,
     required this.isLeaguesSelected,
-    required this.isCupsSelected, required this.isSettingsSelected,
+    required this.isCupsSelected,
+    required this.isSettingsSelected,
+    required this.isNewsSelected,
   });
 
   final bool isHomeSelected;
@@ -17,6 +19,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isLeaguesSelected;
   final bool isCupsSelected;
   final bool isSettingsSelected;
+  final bool isNewsSelected;
 
   @override
   Size get preferredSize => const Size.fromHeight(100);
@@ -31,6 +34,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
         isLeaguesSelected: isLeaguesSelected,
         isCupsSelected: isCupsSelected,
         isSettingsSelected: isSettingsSelected,
+        isNewsSelected: isNewsSelected,
       ),
     );
   }

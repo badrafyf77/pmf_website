@@ -16,6 +16,7 @@ import 'package:pmf_website/features/home/presentation/views/home_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_matches_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/league_table_view.dart';
 import 'package:pmf_website/features/leagues/presentation/views/leagues_view.dart';
+import 'package:pmf_website/features/news/presentation/views/news_view.dart';
 import 'package:pmf_website/features/profile/presentation/views/profile_view.dart';
 import 'package:pmf_website/features/home/presentation/views/trophies_view.dart';
 import 'package:pmf_website/features/settings/data/repo/settings_repo_implementation.dart';
@@ -24,6 +25,7 @@ import 'package:pmf_website/features/settings/presentation/views/settings_view.d
 
 class AppRouter {
   static const home = '/';
+  static const news = '/news';
   static const trophies = '/trophies';
   static const signIn = '/sign-in';
   static const signUp = '/sign-up';
@@ -57,6 +59,14 @@ class AppRouter {
               ),
             );
           }),
+      GoRoute(
+        path: news,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: MouseFollowerWidget(
+            child: NewsView(),
+          ),
+        ),
+      ),
       GoRoute(
         path: signIn,
         pageBuilder: (context, state) => const NoTransitionPage(

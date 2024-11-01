@@ -11,6 +11,7 @@ class GeneralScaffold extends StatelessWidget {
     this.isLeaguesSelected = false,
     this.isCupsSelected = false,
     this.isSettingsSelected = false,
+    this.isNewsSelected = false,
     required this.desktopBody,
     required this.tabletBody,
     required this.mobileBody,
@@ -22,6 +23,7 @@ class GeneralScaffold extends StatelessWidget {
   final bool isLeaguesSelected;
   final bool isCupsSelected;
   final bool isSettingsSelected;
+  final bool isNewsSelected;
   final Widget desktopBody;
   final Widget tabletBody;
   final Widget mobileBody;
@@ -37,6 +39,7 @@ class GeneralScaffold extends StatelessWidget {
           isLeaguesSelected: isLeaguesSelected,
           isCupsSelected: isCupsSelected,
           isSettingsSelected: isSettingsSelected,
+          isNewsSelected: isNewsSelected,
           body: desktopBody,
         );
       }

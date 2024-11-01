@@ -53,6 +53,13 @@ class MobileDrawer extends StatelessWidget {
               },
             ),
             DrawerItem(
+              text: 'NEWS',
+              icon: Icons.home,
+              onTap: () {
+                AppRouter.navigateTo(context, AppRouter.news);
+              },
+            ),
+            DrawerItem(
               text: 'PROFILE',
               icon: Icons.home,
               onTap: () {
