@@ -1,11 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:pmf_website/core/utils/app_images.dart';
 import 'package:pmf_website/core/utils/helpers/is_mobile_checker.dart';
 import 'package:pmf_website/core/utils/styles.dart';
 
 class NewsCard extends StatelessWidget {
-  const NewsCard({super.key});
+  const NewsCard(
+      {super.key, required this.description, required this.imageAsset});
+
+  final String description;
+  final String imageAsset;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +24,13 @@ class NewsCard extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: AutoSizeText(
-                "Here is our representatives in #FIFAWORLDCUP competition.\nBest of luck❤️",
+                description,
                 style: Styles.normal16,
                 textAlign: TextAlign.justify,
               ),
             ),
             const SizedBox(height: 8),
-            Image.asset(AppAssets.post1),
+            Image.asset(imageAsset),
           ],
         ),
       ),

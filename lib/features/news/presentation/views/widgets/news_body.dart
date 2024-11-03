@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:pmf_website/core/utils/app_images.dart';
 import 'package:pmf_website/core/utils/customs/column_fade_animation.dart';
 import 'package:pmf_website/core/utils/customs/list_view.dart';
 import 'package:pmf_website/core/utils/styles.dart';
@@ -28,7 +29,16 @@ class NewsBody extends StatelessWidget {
                 ),
               ),
             ),
-            const NewsCard(),
+            const NewsCard(
+              description:
+                  "Congrats to Anass Moussa on qualifying for the FIFA eFootball World Cup! 🌍⚽ Go shine on the world stage! 👏🔥",
+              imageAsset: AppAssets.post2,
+            ),
+            const NewsCard(
+              description:
+                  "Here is our representatives in FIFA eFootball World Cup competition.\nBest of luck❤️",
+              imageAsset: AppAssets.post1,
+            ),
             const SizedBox(height: 20),
           ],
         ),
