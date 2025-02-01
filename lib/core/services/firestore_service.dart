@@ -3,12 +3,15 @@ import 'package:pmf_website/core/models/fixture_model.dart';
 import 'package:pmf_website/core/models/player_model.dart';
 import 'package:pmf_website/core/models/user_info_model.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
+import 'package:pmf_website/features/news/data/models/post_model.dart';
 
 class FirestoreService {
   final String playersCollection = "players";
   CollectionReference users = FirebaseFirestore.instance.collection('users');
   CollectionReference leagues =
       FirebaseFirestore.instance.collection('leagues');
+      CollectionReference posts =
+      FirebaseFirestore.instance.collection('posts');
 
   Future<void> addUser(UserInformation userInfo) async {
     await users.doc(userInfo.id).set(userInfo.toJson());
@@ -23,6 +26,16 @@ class FirestoreService {
     });
     user = UserInformation.fromJson(data);
     return user;
+  }
+
+  Future<List<Post>> getPosts() async {
+    List<Post> postsList = [];
+    await posts.orderBy('date', descending: true).get().then((post) {
+      for (var doc in post.docs) {
+        postsList.add(Post.fromJson(doc));
+      }
+    });
+    return postsList;
   }
 
   Future<UserInformation> getUserByEmail(String email) async {

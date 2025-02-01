@@ -10,6 +10,8 @@ import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dar
 import 'package:pmf_website/features/auth/presentation/manager/auth%20bloc/auth_bloc.dart';
 import 'package:pmf_website/features/leagues/data/repo/league_repo_implementation.dart';
 import 'package:pmf_website/features/leagues/presentation/manager/cubit/leagues_cubit.dart';
+import 'package:pmf_website/features/news/data/repo/posts_repo_implementation.dart';
+import 'package:pmf_website/features/news/presentation/manager/cubit/posts_cubit.dart';
 import 'package:pmf_website/features/profile/data/repo/profile_repo_implementation.dart';
 import 'package:pmf_website/features/profile/presentation/manager/get%20user%20info%20cubit/get_user_info_cubit.dart';
 import 'firebase_options.dart';
@@ -46,6 +48,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (BuildContext context) => LeaguesCubit(
             getIt.get<LeaguesRepoImplementation>(),
+          ),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => PostsCubit(
+            getIt.get<PostsRepoImplementation>(),
           ),
         ),
       ],
