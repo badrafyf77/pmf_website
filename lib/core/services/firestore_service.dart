@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pmf_website/core/models/fixture_model.dart';
 import 'package:pmf_website/core/models/player_model.dart';
 import 'package:pmf_website/core/models/user_info_model.dart';
+import 'package:pmf_website/core/models/visits_model.dart';
 import 'package:pmf_website/features/leagues/data/models/league_model.dart';
 import 'package:pmf_website/features/news/data/models/post_model.dart';
 
@@ -12,6 +13,28 @@ class FirestoreService {
       FirebaseFirestore.instance.collection('leagues');
       CollectionReference posts =
       FirebaseFirestore.instance.collection('posts');
+      CollectionReference visits = FirebaseFirestore.instance.collection('visits');
+
+  Future<void> increaseVisits() async {
+    int year = DateTime.now().year;
+    int month = DateTime.now().month;
+    int day = DateTime.now().day;
+    String id = '$month-$year';
+    var doc = await visits.doc(id).get();
+    if (doc.exists) {
+      await visits.doc(id).get().then((value) async {
+        final docs = value.data()!;
+        final data = docs as Map<String, dynamic>;
+        List list = data['visits'] as List;
+        Visits v = Visits(visits: list);
+        v.visits[day - 1]++;
+        await visits.doc(id).set(v.toJson());
+      });
+    } else {
+      await visits.doc(id).set(Visits(visits: []).ifNotExiststoJson());
+      increaseVisits();
+    }
+  }
 
   Future<void> addUser(UserInformation userInfo) async {
     await users.doc(userInfo.id).set(userInfo.toJson());

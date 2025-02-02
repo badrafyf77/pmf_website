@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta_seo/meta_seo.dart';
 import 'package:pmf_website/core/config/app_router.dart';
 import 'package:pmf_website/core/config/theme.dart';
+import 'package:pmf_website/core/models/visits_model.dart';
 import 'package:pmf_website/core/utils/service_locator.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pmf_website/features/auth/data/repo/auth_repo_implementation.dart';
@@ -26,6 +27,7 @@ void main() async {
   }
   runApp(const MyApp());
   setupServiceLocator();
+  increaseVisits();
 }
 
 class MyApp extends StatelessWidget {
